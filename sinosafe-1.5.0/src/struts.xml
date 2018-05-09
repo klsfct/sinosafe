@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+     "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 指定由spring负责action对象的创建 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 指定Spring插件的自动装配策略name、type、auto、constructor，默认是 -->
+	<!-- <constant name="struts.objectFactory.spring.autoWire" value="type" /> -->
+	<!-- 所有匹配*.action的请求都由struts2处理 -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 是否启用开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+	<constant name="struts.configuration.xml.reload" value="false" />
+	<!-- 设置浏览器是否缓存静态内容 -->
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<!-- 请求参数的编码方式 -->
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<!-- 每次HTTP请求系统都重新加载资源文件，有助于开发 -->
+	<constant name="struts.i18n.reload" value="true" />
+	<!-- 文件上传最大值 -->
+	<constant name="struts.multipart.maxSize" value="104857600" />
+	<!-- 文件上传临时路径 -->
+    <constant name="struts.multipart.saveDir" value="C:\\tmp\" />
+	<!-- 关闭struts2支持动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<!-- 默认的视图主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 设置Struts 2是否允许在Action名中使用斜线，该属性的默认值是false -->
+	<constant name="struts.enable.SlashesInActionNames" value="false" />
+	<!-- 设置ognl表达式直接访问static方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- 对于一些web应用服务器不能处理HttpServletRequest.getParameterMap(),像 WebLogic,Orion, 
+		and OC4J等，须设置成true,默认为false. -->
+	<constant name="struts.dispatcher.parametersWorkaround" value="false" />
+
+	<!-- 设定加载资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="messageResource_zh_CN" />
+	
+	<package name="default" namespace="/" extends="struts-default">
+
+		<default-action-ref name="index" />
+
+		<global-results>
+			<result name="error">/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="error" />
+			<exception-mapping exception="com.sinotn.common.exception.BusinessException"
+				result="error" />
+		</global-exception-mappings>
+	</package>
+	<!-- Add packages here -->
+	<include file="struts_manage.xml" />
+	<include file="struts_sh_ajax.xml" />
+	<include file="struts_sh.xml" />
+	<include file="struts_wx_ajax.xml" />
+	<include file="struts_baidu_ajax.xml" />
+	<include file="struts_public.xml" />
+	<include file="struts_gx_ajax.xml" />
+</struts>

@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>远程监控</title>   
+    <link rel="stylesheet" href="css/video.css" />  
+    <link rel="stylesheet" href="css/demo.css" type="text/css">
+    <link rel="stylesheet" href="css/scroll.css" type="text/css">
+    <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/tree/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="js/tree/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="js/video.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollbar.js"></script> 
+    
+</head>
+
+<body> 
+    <!--  <div style="position: absolute;top: 0;left: 0;color: red;width: 100%;height: 50px;z-index: 9999;overflow: scroll; display:block" id="test1"></div>  -->
+	<div class="title"> 
+	   <div class="deviceName" style="display:none">选中设备名：<span> </span></div>
+	</div>
+	<!-- 内容start -->
+	<div class="content">
+	    <!-- 左面start -->
+	    <div class="conLeft">
+	      	<div class="page1">
+		      <div class="leftBox">
+		      	<iframe id="iframe1" class="videoNameFrame" src="font.html" ></iframe> 
+		      	<EMBED TYPE="application/x-window-plugin" box="1" lign="CENTER" class="leftBoxSelect" width="99.5%"  height="99.5%" name ="flipper">  
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe2" class="videoNameFrame" src="font.html"></iframe> 
+		        <EMBED TYPE="application/x-window-plugin" box="2" lign="CENTER" class="leftBoxNoSelect" width="99.5%"  height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe3" class="videoNameFrame" src="font.html" ></iframe> 
+		        <EMBED TYPE="application/x-window-plugin" box="3" lign="CENTER" class="leftBoxNoSelect" width="99.5%" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">  
+		      	<iframe id="iframe4" class="videoNameFrame" src="font.html" ></iframe>   
+		        <EMBED TYPE="application/x-window-plugin" box="4" lign="CENTER" class="leftBoxNoSelect" width="99.5%" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe5" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="5" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe6" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="6" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe7" class="videoNameFrame" src="font.html" ></iframe>     
+		        <EMBED TYPE="application/x-window-plugin" box="7" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe8" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="8" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe9" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="9" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">     
+		      	<iframe id="iframe10" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="10" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe11" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="11" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe12" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="12" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">  
+		      	<iframe id="iframe13" class="videoNameFrame" src="font.html" ></iframe>   
+		        <EMBED TYPE="application/x-window-plugin" box="13" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe14" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="14" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe15" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="15" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">  
+		      	<iframe id="iframe16" class="videoNameFrame" src="font.html" ></iframe>   
+		        <EMBED TYPE="application/x-window-plugin" box="16" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe17" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="17" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe18" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="18" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">   
+		      	<iframe id="iframe19" class="videoNameFrame" src="font.html" ></iframe>  
+		        <EMBED TYPE="application/x-window-plugin" box="19" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe20" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="20" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe21" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="21" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">   
+		      	<iframe id="iframe22" class="videoNameFrame" src="font.html" ></iframe>  
+		        <EMBED TYPE="application/x-window-plugin" box="22" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe23" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="23" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe24" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="24" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">  
+		      	<iframe id="iframe25" class="videoNameFrame" src="font.html" ></iframe>   
+		        <EMBED TYPE="application/x-window-plugin" box="25" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe26" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="26" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe27" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="27" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">  
+		      	<iframe id="iframe28" class="videoNameFrame" src="font.html" ></iframe>   
+		        <EMBED TYPE="application/x-window-plugin" box="28" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe29" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="29" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe30" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="30" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">  
+		      	<iframe id="iframe31" class="videoNameFrame" src="font.html" ></iframe>   
+		        <EMBED TYPE="application/x-window-plugin" box="31" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">	
+		      	<iframe id="iframe32" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="32" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe33" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="33" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox"> 
+		      	<iframe id="iframe34" class="videoNameFrame" src="font.html" ></iframe>    
+		        <EMBED TYPE="application/x-window-plugin" box="34" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe35" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="35" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe36" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="36" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">   
+		      	<iframe id="iframe37" class="videoNameFrame" src="font.html" ></iframe>  
+		        <EMBED TYPE="application/x-window-plugin" box="37" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe38" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="38" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe39" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="39" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">     
+		      	<iframe id="iframe40" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="40" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe41" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="41" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe42" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="42" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">   
+		      	<iframe id="iframe43" class="videoNameFrame" src="font.html" ></iframe>  
+		        <EMBED TYPE="application/x-window-plugin" box="43" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe44" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="44" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe45" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="45" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">   
+		      	<iframe id="iframe46" class="videoNameFrame" src="font.html" ></iframe>  
+		        <EMBED TYPE="application/x-window-plugin" box="46" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe47" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="47" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox"> 
+		      	<iframe id="iframe48" class="videoNameFrame" src="font.html" ></iframe>    
+		        <EMBED TYPE="application/x-window-plugin" box="48" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+		      <div class="leftBox">
+		      	<iframe id="iframe49" class="videoNameFrame" src="font.html" ></iframe>
+		        <EMBED TYPE="application/x-window-plugin" box="49" lign="CENTER" width="99.5%" class="leftBoxNoSelect" height="99.5%"  name ="flipper">
+		      </div>
+	      	</div>
+		</div> 
+		<!-- 左面end -->
+		<!-- 右面start -->
+	    <div class="conRight">
+	    	<div class="conRig11">
+			    <div class="rightTitle">
+			    	<div class="fontLeft">当前摄像头:</div>
+			      	<div class="fontRight">
+			      		<span class="videoOnline"></span>/
+			      		<span class="videoAll"></span>
+			      	</div>
+			    </div>
+		     	<div id="treeDemo" class="ztree scrollbar-inner"></div>
+			  	<div class="play" id="operate" > 
+			  	  <div class="playCenter"></div>  
+			      <a title="上" class="goUp"></a>
+			      <a title="左" class="goLeft"></a>
+			      <a title="右" class="goRight" onclick="playLeft()"></a>
+			      <a title="下" class="goDown" onclick="playDown()"></a>
+			    </div> 
+			   </div>
+	    </div> 
+	    <!-- 右面end -->
+	</div>
+	<!-- 内容end -->
+	<!-- 底部版权 -->
+	<div class="footer">
+		<div class="footerButtonLeft">
+			<div class="videoNow initSelect"><a href="video.html">实时视频</a></div>
+			<div class="videoHistory"><a href="img.html">历史录像</a></div>
+	    	<div class="startButton" id="play_btn">播放</div>
+		    <div class="console">云台控制</div>
+		    <div class="duijiao" id="voicePlay" >语音</div>
+		    <div class="duijiao" id="voiceTalk" >对讲</div>
+	    </div>
+	    
+	    <div class="footerButtonRight">
+	    	<a>1</a>
+		    <a class="buttonSelect">4</a>
+		    <a>9</a>
+		    <a>16</a>
+		    <a>25</a>
+		    <a>36</a>
+		    <a>49</a>
+		    <a style="background: url(images/splitScreen.png) 0 0 no-repeat"></a>
+		    <a class="fullScreen" style="width: 40px;line-height: 20px;">全屏</a>
+	    </div>
+	</div>
+    </div>
+</body>
+</html>

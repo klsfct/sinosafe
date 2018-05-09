@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+
+</HEAD>
+<BODY>
+
+   <h1 id="testDiv">
+   
+   </h1>
+   <script type="text/javascript">
+   		
+   		
+   		var showWorm = function(worm){
+   			var temp = document.getElementById("testDiv");
+   			temp.innerHTML = worm;
+   		}
+   		
+   </script>
+
+<EMBED TYPE="application/x-window-plugin" box="1" LIGN=CENTER WIDTH=800 HEIGHT=600 name ="flipper"><P>
+
+<script>
+
+function Onys7Backcall(msgid, boxid)
+{
+//alert("backcall:"+ iErrorCode);
+alert("backcall:"+boxid+"---"+ ys7.GetMessageInfo(msgid));
+return;
+}
+
+function Onys7MouseEvent(i,j)
+{
+showWorm("Onys7MouseEvent:"+ i+' '+j); 
+return;
+}
+
+function ys7_Init()
+{
+var i;
+i = ys7.Init("29c4b33d01d44d9cb6600328fdbfad41");
+alert(i);
+}
+
+function ys7_SetAccessToken()
+{
+var i;
+i = ys7.SetAccessToken("at.8cd3j0m77qmsms9sbfjvrazs0r231ew3-1am5096mr8-0ibyty0-elrljvxsv");
+alert(i);
+}
+
+function ys7_StartRealPlayEx()
+{
+var i;
+i = ys7.StartRealPlayEx(1,1,"750284533",1);
+alert(i);
+}
+
+function ys7_StopRealPlayEx()
+{
+var i;
+i = ys7.StopRealPlayEx(1);
+alert(i);
+}
+
+function DrawBoxs25()
+{
+ys7.DrawBoxs25();
+}
+
+function DrawBoxs16()
+{
+ys7.DrawBoxs16();
+}
+function DrawBoxs9()
+{
+ys7.DrawBoxs9();
+}
+function DrawBoxs4()
+{
+ys7.DrawBoxs4();
+}
+function DrawBoxs1()
+{
+ys7.DrawBoxs1();
+}
+function GetCurrBox()
+{
+s=ys7.GetCurrBox();
+alert(s);
+}
+function GetCurrSn()
+{
+s=ys7.GetCurrSn();
+alert(s);
+}
+function SetText()
+{
+ys7.SetText(1,"123°¡°¡°¡");
+}
+
+
+</script>
+
+<input type="button" value="ys7_Init" onclick="ys7_Init()"/>
+<input type="button" value="ys7_SetAccessToken" onclick="ys7_SetAccessToken()"/>
+<input type="button" value="ys7_StartRealPlayEx" onclick="ys7_StartRealPlayEx()"/>
+<input type="button" value="ys7_StopRealPlayEx" onclick="ys7_StopRealPlayEx()"/>
+
+<input type="button" value="ys7_DrawBoxs1" onclick="DrawBoxs1()"/>
+<input type="button" value="ys7_DrawBoxs4" onclick="DrawBoxs4()"/>
+<input type="button" value="ys7_DrawBoxs9" onclick="DrawBoxs9()"/>
+<input type="button" value="ys7_DrawBoxs16" onclick="DrawBoxs16()"/>
+<input type="button" value="ys7_DrawBoxs25" onclick="DrawBoxs25()"/>
+
+<input type="button" value="GetCurrBox" onclick="GetCurrBox()"/>
+<input type="button" value="GetCurrSn" onclick="GetCurrSn()"/>
+<input type="button" value="SetText" onclick="SetText()"/>
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../libs/js/jquery.js"></script>
+<script type="text/javascript" src="../libs/js/framework.js"></script>
+<link href="../libs/css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" id="skin" prePath="../" scrollerY="false"/>
+<link rel="stylesheet" type="text/css" id="customSkin"/>
+<!--框架必需end-->
+
+<!-- 树型抽屉导航start-->
+<script type="text/javascript" src="../libs/js/tree/ztree/ztree.js"></script>
+<link href="../libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../libs/js/nav/treeAccordion_normal.js"></script>
+<!-- 树型抽屉导航end -->
+<style>
+	.ztree li span.zbutton.diy01_ico_open, .ztree li span.zbutton.diy01_ico_close{width:24px!important;height:24px!important;padding-top:0;}
+</style>
+
+<!-- 垂直选项卡start-->
+<script type="text/javascript" src="../libs/js/nav/verticalTabModern.js"></script>
+<!-- 垂直选项卡end-->
+
+<!-- 垂直导航start-->
+<script type="text/javascript" src="../libs/js/nav/treeAccordion_tabv.js"></script>
+<!-- 垂直导航end-->
+<script type="text/javascript">
+	
+	function getTreeData(idx,httpIp){
+	if(idx=="0"){
+		treeData={"treeNodes":[
+        		//{ id:1, parentId:0, name:"安全考务监控平台",icon:"../libs/icons/list.gif",iconSkin:"diy01"},
+        		/* { id:11, parentId:1, name:"监控平台管理",url:"../../public/control/gotoMonitorByCity.action", target:"_blank",icon:"skin/titlebar_arrow.gif"}, */
+        		//{ id:11, parentId:1, name:"监控平台管理",url:"../control/controlMain.jsp", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		{ id:1003, parentId:0, name:"考点安检管理",icon:"../libs/icons/list.gif",iconSkin:"diy01"},
+        		
+        		//{ id:100301, parentId:1003, name:"报名人员信息查询",url:"../resultExaminee/findAllResultExaminee1List.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+        		{ id:100302, parentId:1003, name:"疑似人员打印",url:"../resultExaminee/findNRoomByPlace.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+         		{ id:100303, parentId:1003, name:"缺考人员打印",url:"../resultExaminee/findQRoomByPlace.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+         		{ id:100304, parentId:1003, name:"入场人员信息查询",url:"../resultExaminee/findResultExaminee1List.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+         		{ id:100305, parentId:1003, name:"疑似人员信息查询",url:"../resultExaminee/findResultExaminee1NList.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+         		{ id:100306, parentId:1003, name:"未入场人员信息查询",url:"../resultExaminee/findResultExaminee1QList.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+         		{ id:100307, parentId:1003, name:"安检通道人数统计",url:"../resultExaminee/monitorByPlace.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+         		{ id:100308, parentId:1003, name:"人脸识别数据统计",url:"../resultExaminee/groupFaceByArea.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+         		{ id:100309, parentId:1003, name:"人工核查信息查询",url:"../resultExaminee/findSocketExaminee1List.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+        		{ id:100310, parentId:1003, name:"考点数据管理",url:"../sh_examPlace/gotofindExamPlaceList.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+        		{ id:100311, parentId:1003, name:"缺考人员信息查询",url:"../resultExaminee/findResultExaminee1QList.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+        		
+        		//{ id:5, parentId:0, name:"统一指挥平台",icon:"../libs/icons/list.gif",iconSkin:"diy01"},
+        		//{ id:50, parentId:5, name:"工作人员分组管理",url:"../sh_linkman/gotoLinkGroupList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:51, parentId:5, name:"工作人员管理",url:"../sh_linkman/gotoLinkManList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:52, parentId:5, name:"工作人员签到管理",url:"../sh_linkman/gotoLinkManLoginList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:53, parentId:5, name:"统一指令模板管理",url:"../sh_sms/gotoSmsTemplateList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:54, parentId:5, name:"统一指令下发",url:"../sh_sms/gotoSmsTaskList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:55, parentId:5, name:"指令下发记录",url:"../sh_sms/gotoSmsInfoList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:56, parentId:5, name:"信息上报查询",url:"../sh_linkman/gotoExamExceptionList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:57, parentId:5, name:"缺考上报查询",url:"../sh_linkman/gotoExamMissList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:58, parentId:5, name:"违纪情况查询",url:"../sh_linkman/gotoExamineePunishList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+
+        		{ id:2, parentId:0, name:"硬件设备管理",icon:"../libs/icons/list.gif",iconSkin:"diy01"},
+        		
+        		//{ id:22, parentId:2, name:"视频监控终端管理",url:"../sh_deviceVideo/gotoDeviceVideoInfoList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:23, parentId:2, name:"车辆定位终端管理",url:"../sh_deviceGps/gotofindDeviceGpsList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		{ id:24, parentId:2, name:"考务安全U盾管理",url:"../deviceInfo/findDeviceFaceList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+        		//{ id:25, parentId:2, name:"移动司考终端管理",url:"../sh_linkman/gotoDevicePhoneInfoListList.action", target:"frmright",icon:"skin/titlebar_arrow.gif"},
+       			//{ id:1004, parentId:0, name:"题卡回收管理",icon:"../libs/icons/list.gif",iconSkin:"diy01"},
+           		//{ id:100401, parentId:1004, name:"题卡扫描监控",url:"../../admin/card/chartCardControl.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+           		//{ id:100402, parentId:1004, name:"题卡数据统计",url:"../resultCard/groupCardByArea.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+           		//{ id:100403, parentId:1004, name:"异常题卡处理",url:"../resultCard/findCardByRoom.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+				
+				//{ id:1005, parentId:0, name:"系统权限管理",icon:"../libs/icons/list.gif",iconSkin:"diy01"},
+           		//{ id:100501, parentId:1005, name:"系统用户管理",url:"../../admin/sysuser/findSysuserList.action", target:"frmright",iconOpen:"../../libs/icons/tree_close.gif",iconClose:"../../libs/icons/tree_open.gif",icon:"skin/titlebar_arrow.gif"},
+         	]};
+	}
+	return treeData;
+}
+</script>
+</head>
+
+<body leftFrame="true">
+<div>	
+	<ul id="treeDemo" class="ztree ztree_accordition"></ul>
+</div>	
+</body>
+</html>

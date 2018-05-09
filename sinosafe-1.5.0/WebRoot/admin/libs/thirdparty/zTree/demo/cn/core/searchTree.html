@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<TITLE>ZTREE DEMO - getNodeByParam / getNodesByParam /
+	getNodesByParamFuzzy</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../css/zTreeStyle/zTreeStyle.css"
+	type="text/css">
+<script type="text/javascript" src="../../../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"
+	src="../../../js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="../../../js/search_tree.js"></script>
+<SCRIPT type="text/javascript">
+		var treeNodeMap = new Map();
+		function initTree(inputObj,treeNodeId){
+			var myDate=new Date()
+			var _beginDate = myDate.getTime();
+			var _tempTreeId = "dep_tree-"+"-"+treeNodeId;
+			var _tempDropId = "tree-drop-"+"-"+treeNodeId;
+			var _tempHtml = "<div class='tree-drop' id='"+_tempDropId+"'>"
+					+"<div class='tree-search'>"
+					+"<input class='tree-search-input' type='text' placeholder='请输入关键字'>"
+					+"</div>"
+					+"<ul id='"+_tempTreeId+"' class='ztree tree-result'>"
+					+"</ul>"
+					+"</div>"
+			$("#tree-box").html(_tempHtml)
+			$("#"+_tempDropId+" .tree-search-input").bind("keyup", treeSearchKeyUp);
+			showTreeDrop(inputObj,_tempTreeId);
+			var setting = {
+				data: {
+					simpleData: {
+						enable: true
+					}				
+				},
+				view: {
+					dblClickExpand: false,
+					fontCss: setFontCss_ztree
+				},
+				callback: {
+					onClick: function(e, treeId, treeNode){
+						var zTree = $.fn.zTree.getZTreeObj(treeId);
+						nodes = zTree.getSelectedNodes();
+						if(nodes.length>0){
+							inputObj.val(nodes[0].name);
+						}
+						hideTreeDrop(treeId);
+					}
+				}
+			};
+			var zNodes;
+			//判断知识点数据是否存在
+			if($("#tree-box").data(treeNodeId)!=null){
+				//存在数据
+			zNodes = $("#tree-box").data(treeNodeId);
+			}else{
+				$("#"+_tempDropId).addClass("tree-loading");
+				//不存在
+				var _tempNodeStr = "[{ id:1, pId:0, name:'根 Root',open:true},"
+				for(var i=1;i<10;i++){
+					_tempNodeStr += "{ id:1"+i+", pId:1, name:'父节点 1-"+i+"'},"
+					for(var j=1;j<10;j++){
+						_tempNodeStr += "{ id:1"+i+"0000"+j+", pId:1"+i+", name:'子节点 1-"+i+"-"+j+"'},"
+						for(var k=1;k<10;k++){
+							_tempNodeStr += "{ id:1"+i+"0000"+j+"0000"+k+", pId:1"+i+"0000"+j+", name:'子节点 1-"+i+"-"+j+"0000"+k+"'},"
+							for(var x=1;x<10;x++){
+								_tempNodeStr += "{ id:1"+i+"0000"+j+"0000"+k+"0000"+x+", pId:1"+i+"0000"+j+"0000"+k+", name:'子节点 1-"+i+"-"+j+"0000"+k+"0000"+x+"'},"
+							}
+						}
+					}
+				}
+				_tempNodeStr+="]"
+				zNodes  = eval("("+_tempNodeStr+")");
+				$("#tree-box").data(treeNodeId,zNodes);
+				$("#"+_tempDropId).removeClass("tree-loading");
+			}
+			$.fn.zTree.init($("#"+_tempTreeId), setting, zNodes);
+		}
+		
+
+		$(document).ready(function(){
+			$(".span8").click(function(){
+				initTree($(this),"123");
+			});	
+		});
+</SCRIPT>
+</head>
+<body>
+	//==============HTML==============
+	<!--搜索框-->
+	<div style="padding: 100px;">
+		<div class="input-append row-fluid" style="margin-bottom: 0px;">
+			<textarea rows="1" cols="3" class="span8"></textarea>
+			<input id="citySel" type="text" class="span8"
+				style="font-size:12px;cursor: pointer;" readonly="readonly"
+				placeholder="请选择知识点" />
+				<input id="citySel1" type="text" class="span8"
+				style="font-size:12px;cursor: pointer;" readonly="readonly"
+				placeholder="请选择知识点" />
+				<input id="citySel2" type="text" class="span8"
+				style="font-size:12px;cursor: pointer;" readonly="readonly"
+				placeholder="请选择知识点" />
+				<input id="citySel3" type="text" class="span8"
+				style="font-size:12px;cursor: pointer;" readonly="readonly"
+				placeholder="请选择知识点" />
+				<input id="citySel4" type="text" class="span8"
+				style="font-size:12px;cursor: pointer;" readonly="readonly"
+				placeholder="请选择知识点" />
+		</div>
+	</div>
+	<!--树-->
+	<div id="tree-box"></div>
+</body>
+</html>

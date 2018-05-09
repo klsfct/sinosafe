@@ -1,0 +1,72 @@
+ .china-title {
+    position: absolute;
+    top: 10px;
+    left: 15%;
+    width: 440px;
+    text-align: left;
+    color: #252525;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px 0 0 0;
+}
+.china-title p{
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+    font-size: 20px;
+}
+p .label{
+}
+.center-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    color: #252525;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 45px 0 0 20px;
+    font-family: "Microsoft YaHei";
+}
+.center-title p{
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+	 font-size: 25px;
+	 font-weight: bolder;
+}
+.top-button {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    width: 400px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 0 0 0;
+    z-index: 9999;
+}
+.topSelect{
+	position: absolute;
+	top: 0;
+	left:10px;
+	width:200px;
+	color: #fff;
+	font-size: 22px;
+	font-weight: bold;
+	padding: 10px 0 0 0 ;
+	z-index: 9999;
+}
+.subject{
+	font-size: 12px;
+	background: #ebebeb;
+	border: 1px solid #a5a5a5;
+	height: 23px;
+	line-height: 23px;
+	padding: 0 5px;
+}
+.fl{
+	float: left;
+}
+
+

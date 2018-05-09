@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- 文件管理DAO -->
+	<bean id="fileResourceDAO" class="com.sinotn.examsafety.dao.FileResourceDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 列表分页查询DAO类 -->
+	<bean id="pageQueryDAO" class="com.sinotn.common.pagequery.PageQueryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 基础代码DAO -->
+	<bean id="baseCodeDAO" class="com.sinotn.examsafety.dao.BaseCodeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考点DAO -->
+	<bean id="examPlaceDAO" class="com.sinotn.examsafety.dao.ExamPlaceDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考生DAO -->
+	<bean id="examineeDAO" class="com.sinotn.examsafety.dao.ExamineeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 手持机设备DAO -->
+	<bean id="deviceHandInfoDAO" class="com.sinotn.examsafety.dao.DeviceHandInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 人脸识别设备DAO -->
+	<bean id="deviceFaceInfoDAO" class="com.sinotn.examsafety.dao.DeviceFaceInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 统计结果DAO -->
+	<bean id="resultExamSumDAO" class="com.sinotn.examsafety.dao.ResultExamSumDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 手持机考点流水DAO -->
+	<bean id="socketDeviceHandDAO" class="com.sinotn.examsafety.dao.SocketDeviceHandDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考点流水DAO -->
+	<bean id="socketDeviceFaceDAO" class="com.sinotn.examsafety.dao.SocketDeviceFaceDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 退场考生安检DAO -->
+	<bean id="resultExamineeExitDAO" class="com.sinotn.examsafety.dao.ResultExamineeExitDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 入场考生安检场次一DAO -->
+	<bean id="resultExaminee1DAO" class="com.sinotn.examsafety.dao.ResultExaminee1DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 入场考生安检场次二DAO -->
+	<bean id="resultExaminee2DAO" class="com.sinotn.examsafety.dao.ResultExaminee2DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 入场考生安检场次三DAO -->
+	<bean id="resultExaminee3DAO" class="com.sinotn.examsafety.dao.ResultExaminee3DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 入场考生安检试卷四DAO -->
+	<bean id="resultExaminee4DAO" class="com.sinotn.examsafety.dao.ResultExaminee4DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 入场考生安检试卷五DAO -->
+	<bean id="resultExaminee5DAO" class="com.sinotn.examsafety.dao.ResultExaminee5DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 入场考生安检试卷六DAO -->
+	<bean id="resultExaminee6DAO" class="com.sinotn.examsafety.dao.ResultExaminee6DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="socketExamineeDAO" class="com.sinotn.examsafety.dao.SocketExamineeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考生安检流水场次一DAO -->
+	<bean id="socketExaminee1DAO" class="com.sinotn.examsafety.dao.SocketExaminee1DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考生安检流水场次二DAO -->
+	<bean id="socketExaminee2DAO" class="com.sinotn.examsafety.dao.SocketExaminee2DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考生安检流水场次三DAO -->
+	<bean id="socketExaminee3DAO" class="com.sinotn.examsafety.dao.SocketExaminee3DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考生安检流水试卷四DAO -->
+	<bean id="socketExaminee4DAO" class="com.sinotn.examsafety.dao.SocketExaminee4DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考生安检流水试卷五DAO -->
+	<bean id="socketExaminee5DAO" class="com.sinotn.examsafety.dao.SocketExaminee5DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考生安检流水试卷六DAO -->
+	<bean id="socketExaminee6DAO" class="com.sinotn.examsafety.dao.SocketExaminee6DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 考生安检DAO -->
+	<bean id="sysUsersDAO" class="com.sinotn.examsafety.dao.SysUsersDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 联系人组DAO -->
+	<bean id="linkGroupDAO" class="com.sinotn.examsafety.dao.LinkGroupDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 联系人DAO -->
+	<bean id="linkManDAO" class="com.sinotn.examsafety.dao.LinkManDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 短信DAO -->
+	<bean id="smsInfoDAO" class="com.sinotn.examsafety.dao.SmsInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="resultCard1DAO" class="com.sinotn.examsafety.dao.ResultCard1DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="resultCard2DAO" class="com.sinotn.examsafety.dao.ResultCard2DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="resultCard3DAO" class="com.sinotn.examsafety.dao.ResultCard3DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="socketCard1DAO" class="com.sinotn.examsafety.dao.SocketCard1DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="socketCard2DAO" class="com.sinotn.examsafety.dao.SocketCard2DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="socketCard3DAO" class="com.sinotn.examsafety.dao.SocketCard3DAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="devicePhoneInfoDAO" class="com.sinotn.examsafety.dao.DevicePhoneInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="examExceptionDAO" class="com.sinotn.examsafety.dao.ExamExceptionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="examineePunishDAO" class="com.sinotn.examsafety.dao.ExamineePunishDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="linkManLoginDAO" class="com.sinotn.examsafety.dao.LinkManLoginDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="paperMoveDAO" class="com.sinotn.examsafety.dao.PaperMoveDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 视频设备DAO -->
+	<bean id="deviceVideoInfoDAO" class="com.sinotn.examsafety.dao.DeviceVideoInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 视频设备令牌DAO -->
+	<bean id="accessTokenDAO" class="com.sinotn.examsafety.dao.AccessTokenDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 定位设备DAO -->
+	<bean id="deviceGpsDAO" class="com.sinotn.examsafety.dao.DeviceGpsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 指令模版DAO -->
+	<bean id="smsTemplateDAO" class="com.sinotn.examsafety.dao.SmsTemplateDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 指令下发DAO -->
+	<bean id="smsTaskDAO" class="com.sinotn.examsafety.dao.SmsTaskDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 缺考DAO -->
+	<bean id="examineeMissDAO" class="com.sinotn.examsafety.dao.ExamineeMissDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 科目DAO -->
+	<bean id="subjectDAO" class="com.sinotn.examsafety.dao.SubjectDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+</beans>

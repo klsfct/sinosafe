@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+     "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 前台视频监控 -->
+	<package name="sh_public_video" extends="default" namespace="/public/video">
+		<action name="gotoVideo" method="gotoVideo" class="deviceVideoAction">
+			<result name="success">video.jsp</result>
+		</action>
+		<action name="gotoVideo2" method="gotoVideo" class="deviceVideoAction">
+			<result name="success">video2.jsp</result>
+		</action>
+	</package>
+	
+	
+	
+	
+	<!-- 前台视频监控异步 -->
+	<package name="sh_public_video_ajax" extends="json-default" namespace="/public/video">
+		<interceptors>
+			<interceptor name="initDeviceVideoInterceptor" class="initDeviceVideoInterceptor" />
+		</interceptors>
+		<action name="getDeviceVideoJson" method="getDeviceVideoJson" class="deviceVideoAction">
+			<result type="json" name="success">
+				<param name="root">
+						ajaxBackData
+				</param>
+			</result>
+			<interceptor-ref name="defaultStack" /> 
+			<interceptor-ref name="initDeviceVideoInterceptor"></interceptor-ref>
+		</action>
+		<action name="getDeviceVideoJsonByVideoType" method="getDeviceVideoJsonByVideoType" class="deviceVideoAction">
+			<result type="json" name="success">
+				<param name="root">
+						ajaxBackData
+				</param>
+			</result>
+			<interceptor-ref name="defaultStack" /> 
+			<interceptor-ref name="initDeviceVideoInterceptor"></interceptor-ref>
+		</action>
+		<action name="getDeviceVideoTocken" method="getDeviceVideoTocken" class="deviceVideoAction">
+			<result type="json" name="success">
+				<param name="root">
+						ajaxBackData
+				</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="sh_public_control" extends="default" namespace="/public/control">
+		<action name="gotoMonitorByCity" method="gotoMonitorByCity" class="resultExamSumAction">
+			<result name="success">studentMap.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 前台统计 -->
+	<package name="sh_public_control_ajax" extends="json-default" namespace="/public/control">
+		<!-- 上海市获取地市地图统计数据  -->
+		<action name="findMonitorByCity" method="findMonitorByCity" class="resultExamSumAction">
+			<result type="json" name="success">
+				<param name="root">
+					ajaxBackData
+				</param>
+			</result>
+		</action>
+		<!-- 上海地图题卡监控监控界面 -->
+		<action name="findMonitorByCard" method="findMonitorByCard" class="resultExamSumAction">
+			<result type="json" name="success">
+				<param name="root">
+					ajaxBackData
+				</param>
+			</result>
+		</action>
+	</package>
+	<!-- 定位设备前台同步方法（百度地图用） -->
+	 <package name="sh_deviceGps_public" extends="default" namespace="/public">
+		<action name="getDeviceVideoInfoByGpsId" method="getDeviceVideoInfoByGpsId" class="deviceGpsAction">
+			<result name="success">deviceVideoOneView.jsp</result>
+		</action>
+		<action name="goSaveMessageOnlyByGpsId" method="goSaveMessageOnlyByGpsId" class="deviceGpsAction">
+			<result name="success">phoneMessage.jsp</result>
+		</action>
+		<action name="gotoPhone" method="goSaveMessageOnly" class="shSmsAction">
+			<result name="success">phoneMessage.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 前台单条短信异步 -->
+	<package name="sh_public_ajax" extends="json-default" namespace="/public">
+		<action name="saveMessageByExam" method="saveMessageByExam" class="shSmsAction">
+			<result type="json" name="success">
+				<param name="root">
+						ajaxBackData
+				</param>
+			</result>
+		</action>
+		<!-- 单个文件上传 -->
+		<action name="uploadFile" method="uploadFile" class="fileResourceAction">
+			<result type="json" name="success">
+				<param name="root">
+						ajaxBackData
+				</param>
+			</result>
+		</action>
+		
+		<!-- 考生信息导入 -->
+		<action name="importResultExaminee" method="importResultExaminee" class="resultExamineeAction">
+			<result type="json" name="success">
+				<param name="root">
+						ajaxBackData
+				</param>
+			</result>
+		</action>
+		<!-- 考生信息同步 -->
+		<action name="importExaminee" method="importExaminee" class="resultExamineeAction">
+			<result type="json" name="success">
+				<param name="root">
+						ajaxBackData
+				</param>
+			</result>
+		</action>
+		<!-- 考生统计表同步 -->
+		<action name="sumTable" method="sumTable" class="resultExamineeAction">
+			<result type="json" name="success">
+				<param name="root">
+						ajaxBackData
+				</param>
+			</result>
+		</action>
+		
+		<!-- 考点信息导入 -->
+		<action name="importExamPlace" method="importExamPlace" class="examPlaceAction">
+			<result type="json" name="success">
+				<param name="root">
+						ajaxBackData
+				</param>
+			</result>
+		</action>
+	</package>
+	
+	
+</struts>

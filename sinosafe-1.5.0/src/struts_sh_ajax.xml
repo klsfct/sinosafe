@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+     "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+		<package name="sh_linkman_ajax" extends="json-default" namespace="/admin/sh_linkman">
+			<!-- 查询联系人分组列表 -->
+			<action name="findLinkGroupList" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">LinkGroup</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.LinkGroupVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%'</param>
+				<param name="pageParam[0].orderBy">order by id</param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 保存联系人分组信息 -->
+			<action name="addLinkGroup" method="addLinkGroup" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 修改联系人分组信息 -->
+			<action name="modifyLinkGroup" method="modifyLinkGroup" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 删除联系人分组信息 -->
+			<action name="removeLinkGroup" method="removeLinkGroup" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 查询联系人列表 -->
+			<action name="findLinkManList" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">LinkMan</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.LinkManVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%'</param>
+				<param name="pageParam[0].orderBy">order by id asc</param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 保存联系人信息 -->
+			<action name="addLinkMan" method="addLinkMan" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 修改联系人信息 -->
+			<action name="modifyLinkMan" method="modifyLinkMan" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 删除联系人信息 -->
+			<action name="removeLinkMan" method="removeLinkMan" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!--  重置密码  -->
+			<action name="replyLinkManToPass" method="modifyReplyLinkManToPass" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 查询联系人列表 -->
+			<action name="findLinkManLoginList" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">LinkManLogin</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.LinkManLoginVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">1=1</param>
+				<param name="pageParam[0].orderBy">order by loginDate desc</param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 异常上报列表 -->
+			<action name="findExamExceptionList" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">ExamException</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ExamExceptionVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">1=1</param>
+				<param name="pageParam[0].orderBy">order by examPlaceId asc</param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 违纪上报列表 -->
+			<action name="findExamineePunishList" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">ExamineePunish</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ExamineePunishVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">1=1</param>
+				<param name="pageParam[0].orderBy"></param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 缺考列表 -->
+			<action name="findExamMissList" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">ExamineeMiss</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ExamineeMissVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">1=1</param>
+				<param name="pageParam[0].orderBy"></param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 登陆设备列表 -->
+			<action name="findDevicePhoneInfoList" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">DevicePhoneInfo</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.DevicePhoneInfoVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">1=1</param>
+				<param name="pageParam[0].orderBy"></param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 登陆设备列表 -->
+			<action name="findPaperMoveList" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">PaperMove</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.PaperMoveVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">1=1</param>
+				<param name="pageParam[0].orderBy">order by careateDate desc</param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+		</package>
+		
+		<package name="sh_sms_ajax" extends="json-default" namespace="/admin/sh_sms">
+			
+			<action name="findLinkManJsonList" method="findLinkManJsonList" class="smsAction">
+				<result type="json" name="success">
+					<param name="root">
+						linkManJsonList
+					</param>
+				</result>
+			</action>
+		
+			<!-- 查询指令模版列表 -->
+			<action name="findSmsTemplate" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">SmsTemplate</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SmsTemplateVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%'</param>
+				<param name="pageParam[0].orderBy">order by createDate desc</param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 保存指令模版信息 -->
+			<action name="saveSmsTemplate" method="saveSmsTemplate" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 修改指令模版信息 -->
+			<action name="updateSmsTemplate" method="updateSmsTemplate" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 删除指令模版信息 -->
+			<action name="delSmsTemplate" method="delSmsTemplate" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			
+			<!-- 查询指令模版列表 -->
+			<action name="findSmsTask" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">SmsTask</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SmsTaskVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+<!-- 				<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%'</param> -->
+				<param name="pageParam[0].orderBy">order by taskId desc</param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 保存指令模版信息 -->
+			<action name="saveSmsTask" method="saveSmsTask" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 修改指令模版信息 -->
+			<action name="updateSmsTask" method="updateSmsTask" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 删除指令模版信息 -->
+			<action name="delSmsTask" method="delSmsTask" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 查询指令记录列表 -->
+			<action name="findSmsInfoByTaskId" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">SmsInfo</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SmsInfoVo</param>
+				<param name="pageParam[0].initCondition">smsTask.taskId = '${paramValue}'</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].orderBy">order by id asc</param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 查询指令记录列表 -->
+			<action name="findSmsInfo" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">SmsInfo</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SmsInfoVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%'</param>
+				<param name="pageParam[0].orderBy">order by id asc</param>
+				<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+		</package>
+		
+		
+			<!-- 视频设备管理异步 -->
+		<package name="sh_deviceVideo_ajax" extends="json-default" namespace="/admin/sh_deviceVideo">
+			<interceptors>
+				<interceptor name="initDeviceVideoInterceptor" class="initDeviceVideoInterceptor" />
+			</interceptors>
+			<action name="getDeviceVideoJson" method="getDeviceVideoJson" class="deviceVideoAction">
+				<result type="json" name="success">
+					<param name="root">
+							ajaxBackData
+					</param>
+				</result>
+				<interceptor-ref name="defaultStack" /> 
+				<interceptor-ref name="initDeviceVideoInterceptor"></interceptor-ref>
+			</action>
+			
+			<action name="getDeviceVideoJsonByVideoType" method="getDeviceVideoJsonByVideoType" class="deviceVideoAction">
+				<result type="json" name="success">
+					<param name="root">
+							ajaxBackData
+					</param>
+				</result>
+				<interceptor-ref name="defaultStack" /> 
+				<interceptor-ref name="initDeviceVideoInterceptor"></interceptor-ref>
+			</action>
+			<action name="getDeviceVideoTocken" method="getDeviceVideoTocken" class="deviceVideoAction">
+				<result type="json" name="success">
+					<param name="root">
+							ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 视频设备 -->
+			<action name="findDeviceVideoList" method="pageQueryAjax" class="pageQueryAction">
+			<param name="pageParam[0].entity">DeviceVideoInfo</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.DeviceVideoInfoVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examPlace.examArea like '${session.loginSession.areaId}%'</param>
+			<param name="pageParam[0].orderBy">order by inputTime desc</param>
+			<param name="queryFilter"></param>
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			<interceptor-ref name="defaultStack" /> 
+			<interceptor-ref name="initDeviceVideoInterceptor"></interceptor-ref>
+		</action>
+			<action name="saveDeviceVideo" method="saveDeviceVideo" class="deviceVideoAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<action name="updateDeviceVideo" method="updateDeviceVideo" class="deviceVideoAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<action name="regDeviceVideo" method="regDeviceVideo" class="deviceVideoAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<action name="delDeviceVideo" method="delDeviceVideo" class="deviceVideoAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<action name="batchRegDeviceVideo" method="batchRegDeviceVideo" class="deviceVideoAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+		</package>
+			<!-- 定位设备管理异步 -->
+		<package name="sh_deviceGps_ajax" extends="json-default" namespace="/admin/sh_deviceGps">
+			
+			<action name="findDeviceGpsList" method="pageQueryAjax" class="pageQueryAction">
+				<param name="pageParam[0].entity">DeviceGpsInfo</param>
+				<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.DeviceGpsInfoVo</param>
+				<param name="pageParam[0].everyPage">20</param>
+				<param name="pageParam[0].initCondition">examPlace.examArea like '${session.loginSession.areaId}%'</param>
+				<param name="pageParam[0].orderBy">order by examPlace.examPlace asc</param>
+				<param name="queryFilter"></param>
+					<result type="json" name="success">
+						<param name="root">
+							ajaxBackData
+						</param>
+					</result>
+			</action>
+			<action name="getDeviceGps" method="getDeviceGps" class="deviceGpsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+				
+			<action name="setExamPlace" method="setExamPlace" class="deviceGpsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<action name="setBeginPonit" method="setBeginPonit" class="deviceGpsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<action name="syncLinkMan" method="syncLinkMan" class="deviceGpsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<action name="updateLinkMan" method="updateLinkMan" class="deviceGpsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+		</package>
+		
+		<!-- 考点数据管理同步方法 -->
+	<package name="sh_examPlace_ajax" extends="json-default" namespace="/admin/sh_examPlace">
+		<action name="findExamPlaceList" method="pageQueryAjax" class="pageQueryAction">
+			<param name="pageParam[0].entity">ExamPlace</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ExamPlaceVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by examPlace asc</param>
+			<param name="queryFilter"></param>
+			<result type="json" name="success">
+				<param name="root">
+					ajaxBackData
+				</param>
+			</result>
+		</action>
+		<action name="getPointByExamAddr" method="getPointByExamAddr" class="examPlaceAction">
+			<result type="json" name="success">
+				<param name="root">
+					ajaxBackData
+				</param>
+			</result>
+		</action>
+		<action name="batchGetPoint" method="batchGetPoint" class="examPlaceAction">
+			<result type="json" name="success">
+				<param name="root">
+					ajaxBackData
+				</param>
+			</result>
+		</action>
+		<action name="updatePoint" method="updatePoint" class="examPlaceAction">
+			<result type="json" name="success">
+				<param name="root">
+					ajaxBackData
+				</param>
+			</result>
+		</action>
+	</package>
+</struts>

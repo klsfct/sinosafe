@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- 文件管理业务类 -->
+	<bean id="fileResourceServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.FileResourceServiceImpl">
+				<property name="fileResourceDAO" ref="fileResourceDAO" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 科目表业务类 -->
+	<bean id="subjectServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.SubjectServiceImpl">
+				<property name="subjectDAO" ref="subjectDAO" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 流水表业务类 -->
+	<bean id="socketExamineeServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.SocketExamineeServiceImpl">
+				<property name="socketExamineeDAO" ref="socketExamineeDAO" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 分页查询业务类 -->
+	<bean id="pageQueryManage" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.common.pagequery.PageQueryManage">
+				<property name="pageQueryDAO" ref="pageQueryDAO" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 基础代码业务类 -->
+	<bean id="baseCodeServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.BaseCodeServiceImpl">
+				<property name="baseCodeDAO" ref="baseCodeDAO" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 人脸识别业务类 -->
+	<bean id="resultExamineeServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.ResultExamineeServiceImpl">
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+				<property name="resultExaminee1DAO" ref="resultExaminee1DAO"></property>
+				<property name="resultExaminee2DAO" ref="resultExaminee2DAO"></property>
+				<property name="resultExaminee3DAO" ref="resultExaminee3DAO"></property>
+				<property name="resultExaminee4DAO" ref="resultExaminee4DAO"></property>
+				<property name="resultExaminee5DAO" ref="resultExaminee5DAO"></property>
+				<property name="resultExaminee6DAO" ref="resultExaminee6DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="subjectDAO" ref="subjectDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 手持机人脸识别数据导出SERVICE类型 -->
+	<bean id="dataExportManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.DataExportManager">
+				<property name="filePath"
+					value="C:\\Users\\SinotnLibin\\Desktop\\广西测试人脸识别客户端"></property>
+				<property name="baseCodeDAO" ref="baseCodeDAO"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="subjectDAO" ref="subjectDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 手持机人脸识别数据导出SERVICE类型 -->
+	<bean id="usersServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.UsersServiceImpl">
+				<property name="sysUsersDAO" ref="sysUsersDAO"></property>
+				<property name="baseCodeDAO" ref="baseCodeDAO"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 设备管理SERVICE类型 -->
+	<bean id="deviceInfoServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.DeviceInfoServiceImpl">
+				<property name="deviceHandInfoDAO" ref="deviceHandInfoDAO"></property>
+				<property name="deviceFaceInfoDAO" ref="deviceFaceInfoDAO"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 发短信SERVICE类型 -->
+	<bean id="smsServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.SmsServiceImpl">
+				<property name="linkGroupDAO" ref="linkGroupDAO"></property>
+				<property name="linkManDAO" ref="linkManDAO"></property>
+				<property name="smsInfoDAO" ref="smsInfoDAO"></property>
+				<property name="smsTaskDAO" ref="smsTaskDAO"></property>
+				<property name="smsTemplateDAO" ref="smsTemplateDAO"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 提卡信息SERVICE类型 -->
+	<bean id="resultExamSumServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.ResultExamSumServiceImpl">
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="resultCard1DAO" ref="resultCard1DAO"></property>
+				<property name="resultCard2DAO" ref="resultCard2DAO"></property>
+				<property name="resultCard3DAO" ref="resultCard3DAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="deviceFaceInfoDAO" ref="deviceFaceInfoDAO"></property>
+				<property name="baseCodeDAO" ref="baseCodeDAO"></property>
+				<property name="resultExaminee1DAO" ref="resultExaminee1DAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 手持机考点数据SERVICE类型 -->
+	<bean id="deviceHandReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.DeviceHandReceiveImpl">
+				<property name="deviceHandInfoDAO" ref="deviceHandInfoDAO"></property>
+				<property name="socketDeviceHandDAO" ref="socketDeviceHandDAO"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型 -->
+	<bean id="cardData1ReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.CardData1ReceiveImpl">
+				<property name="resultCard1DAO" ref="resultCard1DAO"></property>
+				<property name="socketCard1DAO" ref="socketCard1DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="recordNumber" value="300"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型 -->
+	<bean id="cardData2ReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.CardData2ReceiveImpl">
+				<property name="resultCard2DAO" ref="resultCard2DAO"></property>
+				<property name="socketCard2DAO" ref="socketCard2DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="recordNumber" value="300"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型 -->
+	<bean id="cardData3ReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.CardData3ReceiveImpl">
+				<property name="resultCard3DAO" ref="resultCard3DAO"></property>
+				<property name="socketCard3DAO" ref="socketCard3DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="recordNumber" value="300"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型 -->
+	<bean id="deviceFaceReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.DeviceFaceReceiveImpl">
+				<property name="deviceFaceInfoDAO" ref="deviceFaceInfoDAO"></property>
+				<property name="socketDeviceFaceDAO" ref="socketDeviceFaceDAO"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型场次一 -->
+	<bean id="examineeData1ReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.ExamineeData1ReceiveImpl">
+				<property name="resultExaminee1DAO" ref="resultExaminee1DAO"></property>
+				<property name="socketExaminee1DAO" ref="socketExaminee1DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+				<property name="resultExamineeExitDAO" ref="resultExamineeExitDAO"></property>
+				<property name="recordNumber" value="600"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型场次二 -->
+	<bean id="examineeData2ReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.ExamineeData2ReceiveImpl">
+				<property name="resultExaminee2DAO" ref="resultExaminee2DAO"></property>
+				<property name="socketExaminee2DAO" ref="socketExaminee2DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="resultExamineeExitDAO" ref="resultExamineeExitDAO"></property>
+				<property name="recordNumber" value="1000"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型 场次三 -->
+	<bean id="examineeData3ReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.ExamineeData3ReceiveImpl">
+				<property name="resultExaminee3DAO" ref="resultExaminee3DAO"></property>
+				<property name="socketExaminee3DAO" ref="socketExaminee3DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="resultExamineeExitDAO" ref="resultExamineeExitDAO"></property>
+				<property name="recordNumber" value="1000"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型试卷四 -->
+	<bean id="examineeData4ReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.ExamineeData4ReceiveImpl">
+				<property name="resultExaminee4DAO" ref="resultExaminee4DAO"></property>
+				<property name="socketExaminee4DAO" ref="socketExaminee4DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="resultExamineeExitDAO" ref="resultExamineeExitDAO"></property>
+				<property name="recordNumber" value="1000"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型试卷五 -->
+	<bean id="examineeData5ReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.ExamineeData5ReceiveImpl">
+				<property name="resultExaminee5DAO" ref="resultExaminee5DAO"></property>
+				<property name="socketExaminee5DAO" ref="socketExaminee5DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="resultExamineeExitDAO" ref="resultExamineeExitDAO"></property>
+				<property name="recordNumber" value="1000"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 考点数据SERVICE类型试卷六 -->
+	<bean id="examineeData6ReceiveImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.impl.ExamineeData6ReceiveImpl">
+				<property name="resultExaminee6DAO" ref="resultExaminee6DAO"></property>
+				<property name="socketExaminee6DAO" ref="socketExaminee6DAO"></property>
+				<property name="resultExamSumDAO" ref="resultExamSumDAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="resultExamineeExitDAO" ref="resultExamineeExitDAO"></property>
+				<property name="recordNumber" value="1000"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 处理题卡定时工作类 -->
+	<bean id="quartzJobCard" class="com.sinotn.examsafety.process.QuartzJobCard">
+		<property name="mobileDataReceiveList">
+			<list>
+				<!-- <ref bean="cardData1ReceiveImpl"/> <ref bean="cardData2ReceiveImpl"/> 
+					<ref bean="cardData3ReceiveImpl"/> -->
+			</list>
+		</property>
+
+	</bean>
+	<!-- 定义调用对象和调用对象的方法 -->
+	<bean id="jobCardTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="quartzJobCard" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+		<property name="concurrent">
+			<value>false</value>
+		</property>
+	</bean>
+	<!-- 定义触发时间 -->
+	<bean id="doCardTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="jobCardTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0/1 * * * * ?</value>
+		</property>
+	</bean>
+	<!-- 处理考点定时工作类 -->
+	<bean id="quartzJobMobilePlace" class="com.sinotn.examsafety.process.QuartzJobMobilePlace">
+		<property name="deviceHandReceiveImpl">
+			<ref bean="deviceHandReceiveImpl" />
+		</property>
+	</bean>
+	<!-- 定义调用对象和调用对象的方法 -->
+	<bean id="jobMobilePlaceTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="quartzJobMobilePlace" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+		<property name="concurrent">
+			<value>false</value>
+		</property>
+	</bean>
+	<!-- 定义触发时间 -->
+	<bean id="doMobilePlaceTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="jobMobilePlaceTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0/5 * * * * ?</value>
+		</property>
+	</bean>
+	<!-- 处理人脸考点定时工作类 -->
+	<bean id="quartzJobFacePlace" class="com.sinotn.examsafety.process.QuartzJobFacePlace">
+		<property name="deviceFaceReceiveImpl">
+			<ref bean="deviceFaceReceiveImpl" />
+		</property>
+	</bean>
+	<!-- 定义调用对象和调用对象的方法 -->
+	<bean id="jobFacePlaceTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="quartzJobFacePlace" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+		<property name="concurrent">
+			<value>false</value>
+		</property>
+	</bean>
+	<!-- 定义触发时间 -->
+	<bean id="doFacePlaceTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="jobFacePlaceTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0/5 * * * * ?</value>
+		</property>
+	</bean>
+	<!-- 处理安检定时工作类 -->
+	<bean id="quartzJobFaceExaminee" class="com.sinotn.examsafety.process.QuartzJobFaceExaminee">
+		<property name="dataReceiveList">
+			<list>
+				<ref bean="examineeData1ReceiveImpl" />
+				<ref bean="examineeData2ReceiveImpl" />
+				<ref bean="examineeData3ReceiveImpl" />
+				<ref bean="examineeData4ReceiveImpl" />
+				<ref bean="examineeData5ReceiveImpl" />
+				<ref bean="examineeData6ReceiveImpl" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- 定义调用对象和调用对象的方法 -->
+	<bean id="jobFaceExamineeTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="quartzJobFaceExaminee" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+		<property name="concurrent">
+			<value>false</value>
+		</property>
+	</bean>
+	<!-- 定义触发时间 -->
+	<bean id="doFaceExamineeTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="jobFaceExamineeTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0/2 * * * * ?</value>
+		</property>
+	</bean>
+	<!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序 -->
+	<bean id="startQuartz" lazy-init="false" autowire="no"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<!-- <ref bean="doMobilePlaceTime"/> -->
+				<!--<ref bean="doCardTime"/> -->
+				<ref bean="doFacePlaceTime" />
+				<ref bean="doFaceExamineeTime" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- 视频设备管理SERVICE类型 -->
+	<bean id="deviceVideoServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.sh.DeviceVideoServiceImpl">
+				<property name="deviceVideoInfoDAO" ref="deviceVideoInfoDAO"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 视频设备令牌SERVICE类型 -->
+	<bean id="accessTokenServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.sh.AccessTokenServiceImpl">
+				<property name="accessTokenDAO" ref="accessTokenDAO"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 考点信息管理SERVICE类型 -->
+	<bean id="examPlaceServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.sh.ExamPlaceServiceImpl">
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+				<property name="baseCodeDAO" ref="baseCodeDAO"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 定位设备信息管理SERVICE类型 -->
+	<bean id="deviceGpsServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.sh.DeviceGpsServiceImpl">
+				<property name="deviceGpsDAO" ref="deviceGpsDAO"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<!--上海联系人管理SERVICE类型 -->
+	<bean id="shLinkManServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.sinotn.examsafety.service.sh.ShLinkManServiceImpl">
+				<property name="linkGroupDAO" ref="linkGroupDAO"></property>
+				<property name="linkManDAO" ref="linkManDAO"></property>
+				<property name="devicePhoneInfoDAO" ref="devicePhoneInfoDAO"></property>
+				<property name="linkManLoginDAO" ref="linkManLoginDAO"></property>
+				<property name="examineeDAO" ref="examineeDAO"></property>
+				<property name="examExceptionDAO" ref="examExceptionDAO"></property>
+				<property name="examineePunishDAO" ref="examineePunishDAO"></property>
+				<property name="paperMoveDAO" ref="paperMoveDAO"></property>
+				<property name="examineeMissDAO" ref="examineeMissDAO"></property>
+				<property name="examPlaceDAO" ref="examPlaceDAO"></property>
+			</bean>
+		</property>
+	</bean>
+</beans>

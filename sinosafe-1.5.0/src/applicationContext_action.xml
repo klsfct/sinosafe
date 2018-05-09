@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<!-- 文件管理 -->
+	<bean id="fileResourceAction" class="com.sinotn.examsafety.action.FileResourceAction"
+		scope="prototype">
+		<property name="fileResourceServiceImpl" ref="fileResourceServiceImpl" />
+	</bean>
+
+	<bean id="baseAction" class="com.sinotn.examsafety.action.BaseAction"
+		scope="prototype">
+	</bean>
+
+	<bean id="initDataAction" class="com.sinotn.examsafety.action.InitDataAction"
+		scope="prototype">
+		<property name="socketExamineeServiceImpl" ref="socketExamineeServiceImpl" />
+	</bean>
+	<!-- 分页列表查询action -->
+	<bean id="pageQueryAction" class="com.sinotn.common.pagequery.PageQueryAction"
+		scope="prototype">
+		<property name="pageQueryManage" ref="pageQueryManage" />
+	</bean>
+	<bean id="dataExportAction" class="com.sinotn.examsafety.action.DataExportAction"
+		scope="prototype">
+		<property name="dataExportManager">
+			<ref bean="dataExportManager" />
+		</property>
+		<property name="examPlaceServiceImpl">
+			<ref bean="examPlaceServiceImpl" />
+		</property>
+		<property name="subjectServiceImpl">
+			<ref bean="subjectServiceImpl" />
+		</property>
+	</bean>
+	<bean id="usersAction" class="com.sinotn.examsafety.action.UsersAction"
+		scope="prototype">
+		<property name="usersServiceImpl">
+			<ref bean="usersServiceImpl" />
+		</property>
+	</bean>
+	<bean id="deviceInfoAction" class="com.sinotn.examsafety.action.DeviceInfoAction"
+		scope="prototype">
+		<property name="deviceInfoServiceImpl">
+			<ref bean="deviceInfoServiceImpl" />
+		</property>
+	</bean>
+	<bean id="resultExamSumAction" class="com.sinotn.examsafety.action.ResultExamSumAction"
+		scope="prototype">
+		<property name="resultExamSumServiceImpl">
+			<ref bean="resultExamSumServiceImpl" />
+		</property>
+		<property name="resultExamineeServiceImpl">
+			<ref bean="resultExamineeServiceImpl" />
+		</property>
+		<property name="baseCodeServiceImpl">
+			<ref bean="baseCodeServiceImpl" />
+		</property>
+	</bean>
+	<bean id="resultExamineeAction" class="com.sinotn.examsafety.action.ResultExamineeAction"
+		scope="prototype">
+		<property name="resultExamineeServiceImpl">
+			<ref bean="resultExamineeServiceImpl" />
+		</property>
+	</bean>
+
+	<!-- 发短信ACTION类 -->
+	<bean id="smsAction" class="com.sinotn.examsafety.action.SmsAction"
+		scope="prototype">
+		<property name="smsServiceImpl" ref="smsServiceImpl"></property>
+	</bean>
+
+	<!-- 视频设备ACTION类 -->
+	<bean id="deviceVideoAction" class="com.sinotn.examsafety.action.DeviceVideoAction"
+		scope="prototype">
+		<property name="deviceVideoServiceImpl" ref="deviceVideoServiceImpl"></property>
+		<property name="accessTokenServiceImpl" ref="accessTokenServiceImpl"></property>
+	</bean>
+	<!-- 初始化视频设备拦截器 -->
+	<bean id="initDeviceVideoInterceptor"
+		class="com.sinotn.examsafety.service.sh.InitDeviceVideoInterceptor"
+		scope="prototype">
+		<property name="deviceVideoServiceImpl" ref="deviceVideoServiceImpl"></property>
+		<property name="accessTokenServiceImpl" ref="accessTokenServiceImpl"></property>
+	</bean>
+	<!-- 考点信息ACTION类 -->
+	<bean id="examPlaceAction" class="com.sinotn.examsafety.action.ExamPlaceAction"
+		scope="prototype">
+		<property name="examPlaceServiceImpl" ref="examPlaceServiceImpl"></property>
+	</bean>
+	<!-- 定位设备信息ACTION类 -->
+	<bean id="deviceGpsAction" class="com.sinotn.examsafety.action.DeviceGpsAction"
+		scope="prototype">
+		<property name="deviceGpsServiceImpl" ref="deviceGpsServiceImpl"></property>
+		<property name="deviceVideoServiceImpl" ref="deviceVideoServiceImpl"></property>
+		<property name="accessTokenServiceImpl" ref="accessTokenServiceImpl"></property>
+	</bean>
+
+
+
+	<!-- 上海ACTION类 -->
+	<bean id="shAction" class="com.sinotn.examsafety.action.ShAction"
+		scope="prototype">
+		<property name="smsServiceImpl" ref="smsServiceImpl"></property>
+	</bean>
+
+	<!-- 上海指令ACTION类 -->
+	<bean id="shSmsAction" class="com.sinotn.examsafety.action.ShSmsAction"
+		scope="prototype">
+		<property name="smsServiceImpl" ref="smsServiceImpl"></property>
+	</bean>
+
+	<!-- 上海联系人ACTION类 -->
+	<bean id="shLinkManAction" class="com.sinotn.examsafety.action.ShLinkManAction"
+		scope="prototype">
+		<property name="linkManServiceImpl" ref="shLinkManServiceImpl"></property>
+		<property name="examPlaceServiceImpl" ref="examPlaceServiceImpl"></property>
+	</bean>
+</beans>

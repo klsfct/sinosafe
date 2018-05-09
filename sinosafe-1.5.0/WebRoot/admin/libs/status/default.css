@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+#bar_center{ 
+	margin:50px auto 25px auto; 
+	width:400px;
+	font-size:16px; 
+}
+.bar_pic{
+	display:inline-block; 
+	overflow:hidden; 
+	background-repeat: no-repeat;
+	background-image:url(img/bar.png);
+}
+.bar_bg{
+	background-position: -1px -101px;
+	width:397px; 
+	height:49px; 
+	text-align: left;
+}
+.bar_cur{
+	background-position: -1px -51px;
+	width:0px; 
+	color:#fff; 
+	text-align:center; 
+	font-family:Tahoma; 
+	line-height:48px;
+	font-size:18px; 
+	height:48px; 
+}
+.bar_red{
+	background-position: -1px -1px;
+	width:0px; 
+	color:#fff; 
+	text-align:center; 
+	font-family:Tahoma; 
+	line-height:48px;
+	font-size:18px; 
+	height:48px; 
+}

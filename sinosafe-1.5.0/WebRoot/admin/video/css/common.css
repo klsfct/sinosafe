@@ -1,0 +1,327 @@
+body {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background: #eee;
+}
+/* CSS Document */
+html, body, div, span, object, iframe,h1, h2, 
+h3, h4, h5, h6, p, blockquote, pre,abbr, address, cite, code,del, dfn, 
+em, img, ins,kbd, q, samp,small, strong, sub, sup, var,b, i,dl, dt, dd, 
+ol, ul, li,fieldset, form, label, legend,table, caption, tbody, 
+tfoot,thead,tr, th, td,article, aside, canvas, details, figcaption, 
+figure, footer, header, hgroup, menu, nav, section, summary,time, mark, 
+audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    outline-style:none;/*FF*/ 
+}
+input,button,select,textarea{
+	outline:none
+}
+ul li{
+    list-style: none;
+}
+.top {
+	height: 35px;
+	background: url("../images/top-bg.png") repeat-x;
+	border-bottom: 1px solid #ccc;
+}
+
+.top-left {
+	width: 300px;
+	float: left;
+}
+
+.top-right {
+	margin-left: 300px;
+	padding: 5px 0;
+}
+
+.deviceName {
+	line-height: 25px;
+	font-size: 14px;
+	border-left: 2px solid #ccc;
+	padding: 0 5px;
+	color: #666;
+}
+
+.footer {
+	height: 50px;
+	background: url("../images/top-bg.png") repeat-x;
+	border: 1px solid #ccc;
+	border-width: 1px 0;
+}
+
+.content {
+	position: relative;
+	background: #ffffff;
+	padding: 5px 0;
+}
+
+.conLeft {
+	margin-left: 300px;
+}
+
+.conRight {
+	width: 300px;
+	float: left;
+}
+.conRightBorder{
+	border: 2px solid #ccc;
+    margin-left: 2px;
+}
+    
+.leftBox {
+	float: left;
+}
+
+.small-con {
+	position: relative;
+}
+
+.small-box {
+	border: 2px solid #ccc;
+}
+
+.check-box .small-box {
+	border: 2px solid green;
+}
+
+.conRight-box {
+	padding: 5px 8px 5px 5px;
+	position: relative;
+}
+
+.conRight-border {
+	box-shadow: 1px 2px 3px 1px #cbcbcb;
+}
+
+.rightTitle {
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	background: #0a8cff;
+	border-bottom: 1px solid #2f9dff;
+	color: #fff;
+}
+
+.conRight-con {
+	background: #fff;
+	overflow: auto;
+	position: relative;
+}
+
+.footerButtonLeft {
+	float: left;
+	padding: 7px 0 0 10px;
+}
+
+.footerButtonRight {
+	float: right;
+	padding: 12px 10px 0 0;
+}
+
+.footerButtonRight a {
+	float: left;
+	display: block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #999;
+	margin: 0 5px;
+	text-align: center;
+	color: #999;
+	text-decoration: none;
+}
+
+.buttonSelect {
+	background: #ccc;
+	color: #333;
+}
+
+
+
+.operate {
+	width: 150px;
+	height: 150px;
+	background: #fdfdfd;
+	border: 1px solid #d7d7d7;
+	border-radius: 10px;
+	position: absolute;
+    left: 50px;
+    bottom: 10px;
+	display: none;
+}
+
+.goUp {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url(../images/up.png) no-repeat;
+	background-position: 0 2px;
+	position: absolute;
+	top: 15px;
+	left: 65px;
+}
+
+.goRight {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url(../images/up.png) no-repeat;
+	background-position: 0 -30px;
+	position: absolute;
+	top: 65px;
+	right: 15px;
+}
+
+.goLeft {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url(../images/up.png) no-repeat;
+	background-position: 0px -66px;
+    position: absolute;
+	top: 65px;
+	left: 15px;
+}
+
+.goDown {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url(../images/up.png) no-repeat;
+	background-position: 0 -14px;
+	position: absolute;
+	bottom: 15px;
+	left: 65px;
+}
+
+.playCenter {
+	width: 60px;
+	height: 60px;
+	border: 1px solid #e6e6e6;
+	position: absolute;
+	top: 45px;
+	left: 45px;
+	border-radius: 5px;
+}
+
+.operate a:hover {
+	cursor: pointer;
+}
+
+.clear {
+	clear: both;
+}
+#conCenter{
+	float: left;
+	border: 2px solid #ccc;
+    margin-left: 2px;
+}
+#conRightTime{
+    width: 294px;
+    background: #fff;
+    margin: 0 2px;
+    float: right;
+    border: 2px solid #ccc;
+}
+ .conRight-box-history{
+    padding: 0px 0px 5px 5px;
+    position: relative;
+ }
+ .allNum{
+	position: absolute;
+    top: 0;
+    right: 5px;
+    line-height: 25px;
+    color: #21afe4;
+    font-size: 12px;
+}
+.searcBtn{
+	position: absolute;
+    top: 8px;
+    left: 20px;
+    display: block;
+    width: 25px;
+    height: 24px;
+    background: #f1f1f1 url(../images/search.png) 4px no-repeat;
+}
+.searcBtn:hover{
+	 background: #f1f1f1 url(../images/search1.png) 4px no-repeat;
+}
+ .search{
+    margin: 5px 10px 0 10px;
+    width: 230px;
+    height: 25px;
+    border-radius: 10px;
+    border: 1px solid #b9b9b9;
+    padding: 2px 0 0 35px;
+    background: #f1f1f1 url(../images/search.png) 4px no-repeat;
+}
+ #date{
+    width: 300px;
+    position: relative;
+    left: 22px;
+    top: 20px;
+}
+.time{
+    margin-top: 30px;
+}
+.timeStyle{
+    width:80px;
+    color:#7d7d7d;
+}
+.begain,.end{
+    padding-left: 30px;
+    margin: 8px 0; 
+    font-size: 12px;
+    font-family: "微软雅黑";
+}
+.dateSearch{
+    color: #fff;
+    background-color: #0a8cff;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 200px;
+    margin: 40px auto;
+    font-size: 16px;
+}
+.dateSearch:hover{
+    cursor: pointer;
+    background-color: #2ea6d2;
+    
+}
+
+#conCenter .box{
+    margin: 10px 10px 0 10px;
+    overflow: auto;
+}
+.head{
+    color: #7d7d7d;
+    font-family: "微软雅黑";
+    font-size: 18px;
+}
+#conCenter li{
+    background-color: #2ea6d2;
+    height: 45px;
+    line-height: 45px;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px 10px;
+    color: #fff;
+    font-size: 16px;
+}
+.videoNameFrame{
+	position: absolute ;
+	width:140px;
+	height:14px;
+	display:none;
+	display: none;
+}

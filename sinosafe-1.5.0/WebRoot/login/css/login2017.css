@@ -1,0 +1,181 @@
+
+/* CSS Document */
+html, body, div, span, object, iframe,h1, h2, 
+h3, h4, h5, h6, p, blockquote, pre,abbr, address, cite, code,del, dfn, 
+em, img, ins,kbd, q, samp,small, strong, sub, sup, var,b, i,dl, dt, dd, 
+ol, ul, li,fieldset, form, label, legend,table, caption, tbody, 
+tfoot,thead,tr, th, td,article, aside, canvas, details, figcaption, 
+figure, footer, header, hgroup, menu, nav, section, summary,time, mark, 
+audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    outline-style:none;/*FF*/ 
+}
+
+a{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+     
+}
+a:hover,a:focus{
+    text-decoration:none;
+    bblr:expression(this.onFocus=this.blur());/*IE*/
+    outline-style:none;/*FF*/ 
+    }
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+ 
+input, select {
+    vertical-align:middle;
+}
+
+/*css为clearfix，清除浮动*/
+.clearfix::before,
+.clearfix::after{
+    content: "";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+.clearfix:after{clear:both;} 
+.clearfix{ 
+    *zoom:1;/*IE/7/6*/
+}
+body{
+    font-family: 微软雅黑;
+    font-size: 15px;
+    background: #f2f2f2 url("../images/bg/AREA_00.png") center 0 no-repeat;
+}
+
+/* 头部 */
+.title{
+	width:100%; 
+	height:100px;
+}
+.wbox{
+    position: relative;
+    width: 1250px;
+    margin: 0 auto;
+    text-align: center;
+	height: 100%;
+
+}
+.wbox .title-logo{
+    /* height: 58px; */
+    float: left;
+    padding-top: 15px;
+}
+
+
+/* 内容部分 */
+.content{
+	width:100%; 
+    height: 500px; 
+    position: relative;
+}
+.content .con-login{
+	border-radius: 20px;
+    position: absolute;
+    right: 450px;
+    top: 200px;
+    width: 300px;
+    height: 255px;
+    background-color: #f2f2f2;
+    padding: 20px 30px 30px 30px;
+}
+.userBox{
+    text-align: center;
+}
+.user{
+    color: #22a5e6;
+    font-size: 22px;
+    font-weight: 700;
+}
+.userLogin{
+    font-size: 16px;
+    color: #7a7a7a;
+}
+
+.loginBox{
+    margin-top: 15px;
+}
+.loginInput{
+    margin: 8px 0;
+    width: 280px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius:5px; 
+    border:2px solid #D1D1D1;
+}
+.loginInputCode{
+    width: 185px;
+   	padding: 8px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius:5px; 
+    border:2px solid #D1D1D1;
+}
+.relativeInputL{
+	position: relative;
+	left: -20px;
+}
+.relativeInputR{
+	position: relative;
+	right: -20px;
+}
+.code{
+    width: 90px;
+    height: 30px;
+    position: relative;
+    top: 10px;
+   
+}
+.loginButton{
+    background: #129de2;
+    color: #fff;
+    text-align: center;
+    padding:10px;
+    border: 1px solid #129de2;
+    border-radius: 4px;
+    width: 42%;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.loginButton:hover {
+    background: #87CEEB;
+	border: 1px solid #87CEEB;
+}
+
+.login-err{
+	border: 1px solid red;
+	border-radius:10px;
+	color: red;
+	padding: 10px;
+	margin-top: 10px;   
+}
+
+/* 内容部分 */
+
+.copy{
+    margin-top: 25px;
+    font: 12px "微软雅黑";
+    color: #596059;
+}
+a{ 
+	text-decoration:none;
+	color: #596059;
+} 

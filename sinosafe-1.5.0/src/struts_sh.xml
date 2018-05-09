@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+     "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<package name="sh_sms" extends="default" namespace="/admin/sh_sms">
+		<!-- 跳转至指令模版分组查询 -->
+		<action name="gotoSmsTemplateList" method="gotoPage" class="pageQueryAction">
+			<result name="success">smsTemplateList.jsp</result>
+		</action>
+		<!-- 跳转至新增指令模版 -->
+		<action name="gotoSaveSmsTemplate" method="gotoSaveSmsTemplate" class="shSmsAction">
+			<result name="success">smsTemplateAdd.jsp</result>
+		</action>
+		<!-- 跳转至修改指令模版-->
+		<action name="gotoUpdateSmsTemplate" method="gotoUpdateSmsTemplate" class="shSmsAction">
+			<result name="success">smsTemplateModify.jsp</result>
+		</action>
+		
+		<!-- 跳转至指令记录分组查询 -->
+		<action name="gotoSmsInfoList" method="gotoPage" class="pageQueryAction">
+			<result name="success">smsInfoList.jsp</result>
+		</action>
+		<action name="gotoSmsInfoListByTaskId" method="gotoPage" class="pageQueryAction">
+			<result name="success">smsInfoListByTaskId.jsp</result>
+		</action>
+		<action name="gotoSmsTaskList" method="gotoPage" class="pageQueryAction">
+			<result name="success">smsTaskList.jsp</result>
+		</action>
+		<action name="gotoSaveSmsTask" method="gotoSaveSmsTemplate" class="shSmsAction">
+			<result name="success">smsTaskAdd.jsp</result>
+		</action>
+		<action name="gotoUpdateSmsTask" method="gotoUpdateSmsTemplate" class="shSmsAction">
+			<result name="success">smsTaskModify.jsp</result>
+		</action>
+		
+		<action name="saveMessageOnly" method="saveMessageOnly" class="shSmsAction">
+			<result name="success">sendMessageResult.jsp</result>
+		</action>
+		<action name="saveMessageByExam" method="saveMessageByExam" class="shSmsAction">
+			<result name="success">sendMessageResult.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="sh_linkman" extends="default" namespace="/admin/sh_linkman">
+		<!-- 跳转至联系人分组查询 -->
+		<action name="gotoLinkGroupList" method="gotoPage" class="pageQueryAction">
+			<result name="success">linkGroupList.jsp</result>
+		</action>
+		<!-- 跳转至新建联系人分组 -->
+		<action name="gotoAddLinkGroup" method="getLinkGroup" class="shLinkManAction">
+			<result name="success">linkGroupAdd.jsp</result>
+		</action>
+		<!-- 跳转至修改联系人分组 -->
+		<action name="gotoModifyLinkGroup" method="findLinkGroupById" class="shLinkManAction">
+			<result name="success">linkGroupModify.jsp</result>
+		</action>
+		<!-- 跳转至新建联系人-->
+		<action name="gotoAddLinkMan"  method="findLinkGroupList" class="shLinkManAction">
+			<result name="success">linkManAdd.jsp</result>
+		</action>
+		<!-- 跳转至修改联系人 -->
+		<action name="gotoModifyLinkMan" method="findLinkManById" class="shLinkManAction">
+			<result name="success">linkManModify.jsp</result>
+		</action>
+		<!-- 跳转至联系人列表页 -->
+		<action name="gotoLinkManList" method="gotoPage" class="shLinkManAction">
+			<result name="success">linkManList.jsp</result>
+		</action>
+		<!-- 跳转至修改签到列表页 -->
+		<action name="gotoLinkManLoginList" method="gotoPage" class="shLinkManAction">
+			<result name="success">linkManLoginList.jsp</result>
+		</action>
+		<!-- 跳转至异常列表页 -->
+		<action name="gotoExamExceptionList" method="gotoPage" class="shLinkManAction">
+			<result name="success">examExceptionList.jsp</result>
+		</action>
+		<!-- 跳转至缺考列表页 -->
+		<action name="gotoExamMissList" method="gotoPage" class="shLinkManAction">
+			<result name="success">examMissList.jsp</result>
+		</action>
+		<!-- 跳转至登陆设备列表页 -->
+		<action name="gotoDevicePhoneInfoListList" method="gotoPage" class="shLinkManAction">
+			<result name="success">devicePhoneInfoList.jsp</result>
+		</action>
+		<!-- 跳转至试卷交接列表页 -->
+		<action name="gotoPaperMoveList" method="gotoPage" class="shLinkManAction">
+			<result name="success">../sample_skin/paperMoveList.jsp</result>
+		</action>
+		<!-- 跳转至违纪列表页 -->
+		<action name="gotoExamineePunishList" method="gotoPage" class="shLinkManAction">
+			<result name="success">examineePunishList.jsp</result>
+		</action>
+		<!-- 查看异常信息 -->
+		<action name="gotoViewExamException" method="gotoViewExamException" class="shLinkManAction">
+			<result name="success">examExceptionView.jsp</result>
+		</action>
+		<!-- 查看异常信息 -->
+		<action name="gotoViewExamineePunish" method="gotoViewExamineePunish" class="shLinkManAction">
+			<result name="success">examineePunishView.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="deviceInfo-shanghai" extends="default" namespace="/admin/deviceInfo">
+		
+		<action name="getBaseProvince" method="getBaseProvince" class="deviceVideoAction"></action>
+		
+		<action name="getBaseArea" method="getBaseArea" class="deviceVideoAction"></action>
+		
+		<action name="getBaseExamPalce" method="getBaseExamPalce" class="deviceVideoAction"></action>
+		
+		<action name="getDeviceTypeCount" method="getDeviceTypeCount" class="deviceVideoAction"></action>
+			
+		
+		
+		
+	</package>
+	
+		<!-- 考点信息管理 -->
+	<package name="examPlaceInfo-shanghai" extends="default" namespace="/admin/examPlaceInfo">
+		<action name="findExamPlaceList" method="pageQuery" class="pageQueryAction">
+			<param name="pageParam[0].entity">ExamPlace</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ExamPlaceVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%'</param>
+			<param name="pageParam[0].orderBy">order by examPlace asc</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				examPlaceList.jsp
+			</result>
+		</action>
+		<action name="getPointByExamAddr" method="getPointByExamAddr" class="examPlaceAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findExamPlaceList</param>
+			</result>
+		</action>
+		<action name="batchGetPoint" method="batchGetPoint" class="examPlaceAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findExamPlaceList</param>
+			</result>
+		</action>
+		<action name="gotoSignin" method="gotoSignin" class="examPlaceAction">
+			<result name="success">baiduMap.jsp</result>
+		</action>
+		
+	</package>
+	
+	<!-- 视频设备管理同步方法 -->
+	<package name="sh_deviceVideo" extends="default" namespace="/admin/sh_deviceVideo">
+		<action name="gotoDeviceVideoInfoList" method="gotoPage" class="pageQueryAction">
+			<result name="success">deviceVideoList.jsp</result>
+		</action>
+		<action name="gotoSaveDeviceVideo" method="gotoSaveDeviceVideo" class="deviceVideoAction">
+			<result name="success">saveDeviceVideo.jsp</result>
+		</action>
+		<action name="gotoUpdateDeviceVideo" method="gotoUpdateDeviceVideo" class="deviceVideoAction">
+			<result name="success">updateDeviceVideo.jsp</result>
+		</action>
+		
+	</package>
+	<!-- 定位设备管理同步方法 -->
+	<package name="sh_deviceGps" extends="default" namespace="/admin/sh_deviceGps">
+		<action name="gotofindDeviceGpsList" method="gotoPage" class="pageQueryAction">
+			<result name="success">deviceGpsList.jsp</result>
+		</action>
+		<action name="gotoSetExamPlace" method="gotoSetExamPlace" class="deviceGpsAction">
+			<result name="success">setExamPlace.jsp</result>
+		</action>
+		<action name="gotoSetBeginPonit" method="gotoSetBeginPonit" class="deviceGpsAction">
+			<result name="success">setBeginPonit.jsp</result>
+		</action>
+		<action name="verifyExamPlace" method="verifyExamPlace" class="deviceGpsAction">
+			<result name="success">setExamPlace.jsp</result>
+		</action>
+		<action name="gotofindExamPaperList" method="gotoPage" class="pageQueryAction">
+			<result name="success">ExamPaperList.jsp</result>
+		</action>
+		<action name="gotoUpdateLinkMan" method="gotoUpdateLinkMan" class="deviceGpsAction">
+			<result name="success">updateLinkMan.jsp</result>
+		</action>
+		
+	</package>
+	
+	<!-- 考点数据管理同步方法 -->
+	<package name="sh_examPlace" extends="default" namespace="/admin/sh_examPlace">
+		<action name="gotofindExamPlaceList" method="gotoPage" class="pageQueryAction">
+			<result name="success">examPlaceList.jsp</result>
+		</action>
+		<action name="gotoUpdatePoint" method="gotoUpdatePoint" class="examPlaceAction">
+			<result name="success">updateExamPlace.jsp</result>
+		</action>
+		<action name="gotoAddExamPlace" method="gotoPage" class="pageQueryAction">
+			<result name="success">saveExamPlace.jsp</result>
+		</action>
+	</package>
+	<package name="sh_video" extends="default" namespace="/admin/video">
+		<action name="gotoVideo" method="gotoVideo" class="deviceVideoAction">
+			<result name="success">video.jsp</result>
+		</action>
+	</package>
+	
+</struts>

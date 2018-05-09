@@ -1,0 +1,412 @@
+/* CSS Document */
+html, body, div, span, object, iframe,h1, h2, 
+h3, h4, h5, h6, p, blockquote, pre,abbr, address, cite, code,del, dfn, 
+em, img, ins,kbd, q, samp,small, strong, sub, sup, var,b, i,dl, dt, dd, 
+ol, ul, li,fieldset, form, label, legend,table, caption, tbody, 
+tfoot,thead,tr, th, td,article, aside, canvas, details, figcaption, 
+figure, footer, header, hgroup, menu, nav, section, summary,time, mark, 
+audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	outline-style: none;
+/*FF*/
+}
+
+input,button,select,textarea {
+	outline: none
+}
+
+a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+a:hover,a:focus {
+	text-decoration: none;
+	bblr: expression(this.onFocus=this.blur());
+/*IE*/
+	outline-style: none;
+/*FF*/
+}
+
+ul li {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input, select {
+	vertical-align: middle;
+}
+
+.clearfix::before,
+.clearfix::after {
+	content: "";
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+/*IE/7/6*/
+}
+
+html,body {
+	height: 100%;
+	font-size: 15px;
+}
+
+/* 澶撮儴 */
+.title {
+	width: 100%;
+	height: 35px;
+	background: #020411;
+}
+
+.titleBox {
+	width: 100%;
+	line-height: 40px;
+	height: 40px;
+	position: relative;
+	top: 10px;
+}
+
+.logo {
+	float: left;
+	height: 30px;
+	width: 10px;
+	margin-left: 20px;
+	/* background: url(../images/yun.png) no-repeat; */
+}
+
+.title a {
+	float: left;
+	color: #fff;
+	list-style: none;
+	width: 51px;
+	padding-left: 30px;
+	line-height: 25px;
+	margin-top: 5px;
+}
+
+.linePart {
+	float: left;
+	width: 18px;
+	height: 30px;
+	border-left: 1px solid #2ea6d2;
+}
+
+.title a:hover {
+	cursor: pointer;
+}
+
+.video {
+	height: 30px;
+	width: 25px;
+	background: url(../images/video.png) no-repeat;
+}
+
+.img {
+	height: 30px;
+	width: 25px;
+	background: url(../images/img.png) no-repeat;
+}
+
+.up {
+	position: relative;
+	/* top: -8px; */
+    left: 55px;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #eeeeee;
+}
+
+.up2 {
+	position: relative;
+	left: 155px;
+	top: 20px;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #eeeeee;
+}
+
+/* 鍐呭閮ㄥ垎 */
+.content {
+	width: 100%;
+	height: auto;
+	background: #020411;
+	padding: 5px;
+}
+
+.conLeft {
+	height: 100%;
+	float: left;
+}
+
+.borderDiv {
+	border: 1px solid #000;
+}
+
+.leftBox {
+	margin: 2px;
+	float: left;
+	position: relative; 
+}
+
+.leftBoxSplit {
+	margin: 2px;
+	float: left;
+}
+
+.leftBox a {
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+.leftBoxSelect {
+	margin: 0px;
+	border: 2px solid #27b1e5;
+}
+.leftBoxNoSelect {
+	margin: 0px;
+	border: 2px solid #020411;
+}
+.conRight {
+	float: left;
+    min-width: 250px;
+    background: #0a1437;
+    position: relative;
+    border: 1px solid #3ec6f6;
+    margin-top: 3px; 
+}
+
+.rightTitle {
+	padding: 10px 15px;
+	height: 25px;
+	line-height: 25px;
+    background: #0b59c5;
+    color: #fff;
+}
+
+.fontLeft {
+	float: left;
+	font-weight: 700;
+}
+
+.fontRight {
+	float: right;
+	color: #fff;
+}
+.paddingRight15{
+	position: absolute;
+    top: 0;
+    right: 10px;
+    line-height: 25px;
+    color: #fff;
+}
+.voice{
+	width: 30px;
+	height: 30px;
+	background-image: url(../images/voice.png);
+	float: left;
+}
+.voiceTips{
+    background: #21afe4;
+    position: relative;
+    top: -10px;
+    left: 30px;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+}
+.fontRight .videoOnline {
+	color: #fff;
+}
+/* 搴曢儴閮ㄥ垎 */
+.footer {
+   /*  position: fixed; */
+	background: #020411;
+	height: 50px;
+	width: 100%;
+}
+
+.footerButton {
+	padding: 10px 0 0 20px;
+}
+
+.footerButtonRight a {
+	float: left;
+	display: block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #21afe4;
+	margin: 0 5px;
+	text-align: center;
+	color: #21afe4;
+}
+
+.buttonSelect {
+	box-shadow: 0px 0px  3px 3px #afddee;
+	background: #afddee;
+}
+.fullScreen{
+	float: left;
+    width: 55px;
+    height: 22px;
+    margin-left: 5px;
+    color: #21afe4;
+    font-size: 12px;
+    line-height: 25px;
+   
+}
+.bgScreen{
+	background: url(../images/screen.png) 0 0 no-repeat;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+.screenFont{
+    position: relative;
+    top: -9px;
+    margin-right: 5px;
+}
+.fullScreen:hover {
+	background: #afddee;
+	color: white;
+
+	cursor: pointer;
+	text-decoration: none;
+	box-shadow: 0px 0px  3px 3px #afddee;
+}
+.footerButtonLeft div{
+    width: 100px;
+    border: 1px solid #21afe4;
+    margin: 0 10px;
+    text-align: center;
+    color: #21afe4;
+    float: left;
+    /* border-radius: 4px; */
+    height: 25px;
+    line-height: 25px;
+}
+.footerButtonLeft div:hover{
+	background: #afddee;
+	color: #020411;
+	margin: 0 10px;
+	cursor: pointer;
+	text-decoration: none;
+	
+}
+.footerButtonLeft .initSelect {
+	background: #afddee;
+	color: #020411;
+	margin: 0 10px;
+	cursor: pointer;
+	text-decoration: none;
+	
+}
+.footer a:hover {
+	background: #afddee;
+	color: #020411;
+	margin: 0 5px;
+	cursor: pointer;
+	text-decoration: none;
+	box-shadow: 0px 0px  3px 3px #afddee;
+}
+
+.voiceSelect{
+	background: #afddee;
+	color: white;
+}
+
+.#fullScreenPage{
+    background: #eeeeee;
+    padding: 5px;
+
+}
+.videoNameFrame{
+	position: absolute ;
+	width:160px;
+	height:16px;
+	display:none;
+}
+.bgButton{
+    position: absolute;
+    width: 55px;
+    height: 25px;
+    float: left;
+    top: 0;
+    left: 85px;
+}
+.bgStart {
+	background-image: url(../images/start.png);
+	width: 25px;
+	height: 25px;
+	display: block;
+	float: left;
+}
+
+.bgStop {
+	background-image: url(../images/stop.png);
+	width: 25px;
+	height: 25px;
+	display: block;
+	float: left;
+}
+.buttonAotu{
+	width: 208px;
+    margin: 0 auto;
+}
+.buttonBg{
+	background: #27b1e5;
+    color: #fff;
+    width: 90px;
+    height: 30px;
+    margin: 5px;
+}
+ .deviceName{
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    font-size: 24px;
+    padding-left: 10px;
+ }  
+ .footerButtonLeft{
+ 	float: left;
+ 	padding-top: 10px;
+ }
+ .footerButtonRight{
+ 	float: right;
+    padding-top: 10px;
+    padding-right: 15px;
+ }
+ margin: 5px;
+ }

@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+     "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+     "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="login" extends="default" namespace="/">
+		<action name="login" method="login" class="usersAction">
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="exception" />
+			<result name="exception">login.jsp</result>
+			<result name="REGISTER">
+				login_init.jsp
+			</result>
+			<result name="success" type="redirect">
+				/admin/frame/index.jsp
+			</result>
+		</action>
+		<action name="logout" method="logout" class="usersAction">
+			<result name="success" type="redirect">
+				login.jsp
+			</result>
+		</action>
+		
+		<action name="modifyInitSysUsers" method="modifyInitSysUsers"
+			class="usersAction">
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="exception" />
+			<result name="exception">login_init.jsp</result>
+			<result name="success" type="redirect">
+				login.jsp
+			</result>
+		</action>
+		<action name="executeInitUser" method="executeInitUser" class="usersAction">
+			<result name="success">
+				login.jsp
+			</result>
+		</action>
+	</package>
+	<package name="dataExport" extends="default" namespace="/">
+		<!-- 人像识别客户端数据导出 -->
+		<action name="areaDataExport" method="areaDataExport" class="dataExportAction">
+			<result name="success">exportData.jsp</result>
+		</action>
+		<action name="cardPlaceDataExport" method="cardPlaceDataExport"
+			class="dataExportAction">
+			<result name="success">index.jsp</result>
+		</action>
+		<action name="facePlaceDataExport" method="facePlaceDataExport"
+			class="dataExportAction">
+			<result name="success">exportData.jsp</result>
+		</action>
+		<action name="roomDataExport" method="roomDataExport" class="dataExportAction">
+			<result name="success">index.jsp</result>
+		</action>
+		<action name="examineeDataExport" method="examineeDataExport"
+			class="dataExportAction">
+			<result name="success">exportData.jsp</result>
+		</action>
+		<action name="examineeDataExportByExamPlace" method="examineeDataExportByExamPlace"
+			class="dataExportAction">
+			<result name="success">exportData.jsp</result>
+		</action>
+		<action name="faceExportDataByExamPlace" method="faceExportDataByExamPlace"
+			class="dataExportAction">
+			<result name="success">exportData.jsp</result>
+		</action>
+		<action name="checkExportDataByExamPlace" method="checkExportDataByExamPlace"
+			class="dataExportAction">
+			<result name="success">exportData.jsp</result>
+		</action>
+		<!-- 人工核查数据导出 -->
+		<action name="checkSubjectDataExport" method="checkSubjectDataExport"
+			class="dataExportAction">
+			<result name="success">index.jsp</result>
+		</action>
+		<action name="checkPlaceDataExport" method="checkPlaceDataExport"
+			class="dataExportAction">
+			<result name="success">index.jsp</result>
+		</action>
+		<action name="checkExamineeDataExport" method="checkExamineeDataExport"
+			class="dataExportAction">
+			<result name="success">index.jsp</result>
+		</action>
+		<!-- 数据初始化 -->
+		<action name="deleteScoket" method="deleteScoket" class="initDataAction">
+			<result name="success">index.jsp</result>
+		</action>
+		<action name="initResultExaminee" method="initResultExaminee"
+			class="initDataAction">
+			<result name="success">index.jsp</result>
+		</action>
+		<action name="initResultExamineeSum" method="initResultExamineeSum"
+			class="initDataAction">
+			<result name="success">index.jsp</result>
+		</action>
+	</package>
+	<package name="deviceInfo" extends="default" namespace="/admin/deviceInfo">
+		<action name="findDeviceHandList" method="pageQuery" class="pageQueryAction">
+			<param name="pageParam[0].entity">DeviceHandInfo</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.DeviceHandInfoVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by examArea</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				deviceHandList.jsp
+			</result>
+		</action>
+		<action name="findDeviceFaceList" method="pageQuery" class="pageQueryAction">
+			<param name="pageParam[0].entity">DeviceFaceInfo</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.DeviceFaceInfoVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by examArea</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				deviceFaceList.jsp
+			</result>
+		</action>
+		<action name="groupDeviceFaceByArea" method="groupDeviceFaceByArea"
+			class="deviceInfoAction">
+			<result name="success">deviceFaceGroupArea.jsp</result>
+		</action>
+		<action name="groupDeviceHandByArea" method="groupDeviceHandByArea"
+			class="deviceInfoAction">
+			<result name="success">deviceHandGroupArea.jsp</result>
+		</action>
+	</package>
+	<package name="resultCard" extends="default" namespace="/admin/resultCard">
+		<action name="groupCardByArea" method="groupCardByArea" class="resultExamSumAction">
+			<result name="success">cardGroupArea.jsp</result>
+		</action>
+		<action name="groupCardByRoom" method="groupCardByRoom" class="resultExamSumAction">
+			<result name="success">cardGroupRoom.jsp</result>
+		</action>
+		<action name="findCardByRoom" method="findCardByRoom" class="resultExamSumAction">
+			<result name="success">cardByRoomModify.jsp</result>
+		</action>
+		<action name="modifyCardByRoom" method="modifyCardByRoom"
+			class="resultExamSumAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findCardByRoom</param>
+				<param name="subject">${subject}</param>
+				<param name="examPlaceVo.examPlace">${examPlaceVo.examPlace}</param>
+			</result>
+		</action>
+
+	</package>
+	<package name="resultExaminee" extends="default" namespace="/admin/resultExaminee">
+		<action name="getSubjectData" method="getSubjectData" class="resultExamineeAction"></action>
+		<action name="getExamPlaceData" method="getExamPlaceData" class="resultExamineeAction"></action>
+		
+		<!-- 场次一考生查询 -->
+		<action name="findAllResultExaminee1List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee1</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee1Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by licence desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				allResultExamineeList.jsp
+			</result>
+		</action>
+		<!-- 场次二考生查询 -->
+		<action name="findAllResultExaminee2List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee2</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee2Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by licence desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				allResultExamineeList.jsp
+			</result>
+		</action>
+		<!-- 场次三考生查询 -->
+		<action name="findAllResultExaminee3List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee3</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee3Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by licence desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				allResultExamineeList.jsp
+			</result>
+		</action>
+		<!-- 场次四考生查询 -->
+		<action name="findAllResultExaminee4List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee4</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee4Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by licence desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				allResultExamineeList.jsp
+			</result>
+		</action>
+		<!-- 场次五考生查询 -->
+		<action name="findAllResultExaminee5List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee5</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee5Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by licence desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				allResultExamineeList.jsp
+			</result>
+		</action>
+		<!-- 场次六考生查询 -->
+		<action name="findAllResultExaminee6List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee6</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee6Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by licence desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				allResultExamineeList.jsp
+			</result>
+		</action>
+
+		<!-- 人工核查信息查询 start -->
+		<action name="findSocketExaminee1List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">SocketExaminee1</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SocketExaminee1Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and photoPrecision>1000 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by id desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				socketExamineeList.jsp
+			</result>
+		</action>
+		<action name="findSocketExaminee2List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">SocketExaminee2</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SocketExaminee2Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and photoPrecision>1000 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by id</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				socketExamineeList.jsp
+			</result>
+		</action>
+		<action name="findSocketExaminee3List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">SocketExaminee3</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SocketExaminee3Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and photoPrecision>1000 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by id</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				socketExamineeList.jsp
+			</result>
+		</action>
+		<action name="findSocketExaminee4List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">SocketExaminee4</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SocketExaminee4Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and photoPrecision>1000 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by id</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				socketExamineeList.jsp
+			</result>
+		</action>
+		<!-- 人工核查信息查询 end -->
+		<!-- 卷一安检查询 -->
+		<action name="findResultExaminee1List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee1</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee1Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeList.jsp
+			</result>
+		</action>
+		<!-- 卷二安检查询 -->
+		<action name="findResultExaminee2List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee2</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee2Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeList.jsp
+			</result>
+		</action>
+		<!-- 卷三安检查询 -->
+		<action name="findResultExaminee3List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee3</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee3Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeList.jsp
+			</result>
+		</action>
+		<!-- 卷四安检查询 -->
+		<action name="findResultExaminee4List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee4</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee4Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeList.jsp
+			</result>
+		</action>
+		<!-- 卷五安检查询 -->
+		<action name="findResultExaminee5List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee5</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee5Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeList.jsp
+			</result>
+		</action>
+		<!-- 卷六安检查询 -->
+		<action name="findResultExaminee6List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee6</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee6Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineePhoto1List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee1</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee1Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeePhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineePhoto2List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee2</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee2Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeePhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineePhoto3List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee3</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee3Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeePhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineePhoto4List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee4</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee4Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeePhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineePhoto5List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee5</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee5Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeePhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineePhoto6List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee6</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee6Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeePhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineeEList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExamineeExit</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExamineeExitVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeEList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineeEPhotoList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExamineeExit</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExamineeExitVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeEPhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee1NList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee1</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee1Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee2NList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee2</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee2Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee3NList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee3</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee3Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee4NList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee4</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee4Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee5NList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee5</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee5Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee6NList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee6</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee6Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineeNPhoto1List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee1</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee1Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNPhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineeNPhoto2List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee2</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee2Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNPhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineeNPhoto3List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee3</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee3Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNPhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineeNPhoto4List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee4</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee4Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNPhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineeNPhoto5List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee5</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee5Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNPhotoList.jsp
+			</result>
+		</action>
+		<action name="findResultExamineeNPhoto6List" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee6</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee6Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=1 and isPass=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeNPhotoList.jsp
+			</result>
+		</action>
+		
+		<!-- 未入场人员信息查询 -->
+		<action name="findResultExaminee1QList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee1</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee1Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeQList.jsp
+			</result>
+		</action>
+
+
+		<action name="findResultExaminee2QList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee2</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee2Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeQList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee3QList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee3</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee3Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeQList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee4QList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee4</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee4Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeQList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee5QList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee5</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee5Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeQList.jsp
+			</result>
+		</action>
+		<action name="findResultExaminee6QList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee6</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExaminee6Vo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeQList.jsp
+			</result>
+		</action>
+
+		<action name="findResultExamineeQPhotoList" method="pageQuery"
+			class="pageQueryAction">
+			<param name="pageParam[0].entity">ResultExaminee</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.ResultExamineeVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%' and 
+			isProcess=0 and isException=0 ands examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy"></param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				resultExamineeeQPhotoList.jsp
+			</result>
+		</action>
+		<action name="groupPassByArea" method="groupPassByArea" class="resultExamSumAction">
+			<result name="success">passGroupArea.jsp</result>
+		</action>
+
+		<action name="groupFaceByArea" method="groupFaceByArea" class="resultExamSumAction">
+			<result name="success">faceGroupArea.jsp</result>
+		</action>
+		<action name="findQRoomByPlace" method="findQRoomByPlace"
+			class="resultExamineeAction">
+			<result name="success">resultQRoomList.jsp</result>
+			<result name="examcbt">resultQRoomCbtList.jsp</result>
+		</action>
+		<action name="findQResultExamineeForRpt" method="findQResultExamineeRpt"
+			class="resultExamineeAction">
+			<result name="success">resultQExamineeRpt.jsp</result>
+		</action>
+		<action name="findQResultExamineeCbtForRpt" method="findQResultExamineeCbt"
+			class="resultExamineeAction">
+			<result name="success">resultQExamineeCbtRpt.jsp</result>
+		</action>
+		<action name="findQResultExamineeForModify" method="findQResultExaminee"
+			class="resultExamineeAction">
+			<result name="success">resultExamineeeQModify.jsp</result>
+		</action>
+		<action name="findQResultExamineeCbtForModify" method="findQResultExamineeCbt"
+			class="resultExamineeAction">
+			<result name="success">resultExamineeeQCbtModify.jsp</result>
+		</action>
+		<action name="modifyQResultExaminee" method="modifyQResultExaminee"
+			class="resultExamineeAction">
+			<param name="savePath">D:\Server\tomcat7.0\webapps\fileServer\</param>
+			<param name="relativePath">http://127.0.0.1:8080/fileServer/</param>
+			<result name="success" type="redirectAction">
+
+				<param name="actionName">findQRoomByPlace</param>
+				<param name="examPlaceVo.examPlace">${examPlaceVo.examPlace}</param>
+				<param name="subject">${subject}</param>
+				<param name="beginRoom">${beginRoom}</param>
+				<param name="endRoom">${endRoom}</param>
+				<param name="interval">${interval}</param>
+			</result>
+		</action>
+
+		<action name="findNRoomByPlace" method="findNRoomByPlace"
+			class="resultExamineeAction">
+			<result name="success">resultNRoomList.jsp</result>
+			<result name="examcbt">resultNRoomCbtList.jsp</result>
+		</action>
+		<action name="findNResultExamineeForRpt" method="findNResultExaminee"
+			class="resultExamineeAction">
+			<result name="success">resultNExamineeRpt.jsp</result>
+		</action>
+		<action name="findNResultExamineeCbtForRpt" method="findNResultExamineeCbt"
+			class="resultExamineeAction">
+			<result name="success">resultNExamineeCbtRpt.jsp</result>
+		</action>
+		<action name="findNResultExamineeForModify" method="findNResultExaminee"
+			class="resultExamineeAction">
+			<result name="success">resultExamineeeNModify.jsp</result>
+		</action>
+		<action name="findNResultExamineeCbtForModify" method="findNResultExamineeCbt"
+			class="resultExamineeAction">
+			<result name="success">resultExamineeeNCbtModify.jsp</result>
+		</action>
+		<action name="modifyNResultExaminee" method="modifyNResultExaminee"
+			class="resultExamineeAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findNRoomByPlace</param>
+				<param name="examPlaceVo.examPlace">${examPlaceVo.examPlace}</param>
+				<param name="subject">${subject}</param>
+				<param name="beginRoom">${beginRoom}</param>
+				<param name="endRoom">${endRoom}</param>
+				<param name="interval">${interval}</param>
+			</result>
+		</action>
+		<!-- 查询考生详细信息 -->
+		<action name="findResultExaminee" method="findResultExamineeList"
+			class="resultExamineeAction">
+			<result name="success">resultExaminee.jsp</result>
+		</action>
+		<!-- 全国监控 -->
+		<action name="gotoMonitorByArea" method="gotoMonitorByArea"
+			class="resultExamSumAction">
+			<result name="success">monitorChina.jsp</result>
+		</action>
+		<!-- 省监控 -->
+		<action name="gotoMonitorByProvince" method="gotoMonitorByProvince"
+			class="resultExamSumAction">
+			<result name="success">monitorProvice.jsp</result>
+		</action>
+		<!-- 考区监控 -->
+		<action name="monitorByPlace" method="monitorByPlace" class="resultExamSumAction">
+			<result name="success">monitorPlace.jsp</result>
+		</action>
+
+	</package>
+	<package name="ajaxResultExaminee" extends="json-default"
+		namespace="/admin/resultExaminee">
+		<!-- 全国监控 -->
+		<action name="monitorByArea" method="monitorByArea" class="resultExamSumAction">
+			<result type="json" name="success">
+				<param name="root">
+					ajaxBackData
+				</param>
+			</result>
+		</action>
+		<!-- 省监控 -->
+		<action name="monitorByProvince" method="monitorByProvince"
+			class="resultExamSumAction">
+			<result type="json" name="success">
+				<param name="root">
+					ajaxBackData
+				</param>
+			</result>
+		</action>
+	</package>
+	<package name="sysuser" extends="default" namespace="/admin/sysuser">
+		<action name="findSysuserList" method="pageQuery" class="pageQueryAction">
+			<param name="pageParam[0].entity">SysUsers</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SysUsersVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">
+			areaId like '${session.loginSession.areaId}%' ands examPlace like '${session.loginSession.examPlaceId}%'
+			</param>
+			<param name="pageParam[0].orderBy">order by areaId</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				sysuserList.jsp
+			</result>
+		</action>
+		<action name="resetPassword" method="resetPassword" class="usersAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findSysuserList</param>
+			</result>
+		</action>
+		<action name="modifyUser" method="modifyUser" class="usersAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findSysuserList</param>
+			</result>
+		</action>
+		<action name="getUser" method="getUser" class="usersAction">
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="exception" />
+			<result name="exception">userModify.jsp</result>
+			<result name="success">userModify.jsp</result>
+		</action>
+	</package>
+
+	<package name="sms" extends="default" namespace="/admin/sms">
+		<action name="findLinkGroup" method="pageQuery" class="pageQueryAction">
+			<param name="pageParam[0].entity">LinkGroup</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.LinkGroupVo</param>
+			<param name="pageParam[0].everyPage">10</param>
+			<param name="pageParam[0].initCondition">examArea = '${session.loginSession.areaId}' </param>
+			<param name="pageParam[0].orderBy">order by createDate desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">linkGroupList.jsp</result>
+		</action>
+		<action name="findLinkMan" method="pageQuery" class="pageQueryAction">
+			<param name="pageParam[0].entity">LinkMan</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.LinkManVo</param>
+			<param name="pageParam[0].everyPage">10</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}' ands 
+			examPlace like '${session.loginSession.examPlaceId}%'</param>
+			<param name="pageParam[0].orderBy">order by createDate desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">linkManList.jsp</result>
+		</action>
+		<action name="findSmsInfo" method="pageQuery" class="pageQueryAction">
+			<param name="pageParam[0].entity">SmsInfo</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.SmsInfoVo</param>
+			<param name="pageParam[0].everyPage">10</param>
+			<param name="pageParam[0].initCondition">examArea like '${session.loginSession.areaId}%'</param>
+			<param name="pageParam[0].orderBy">order by createDate desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">linkSmsInfo.jsp</result>
+		</action>
+		<action name="gotoSavelinkGroup" method="gotoSavelinkGroup"
+			class="smsAction">
+			<result name="success">savelinkGroup.jsp</result>
+		</action>
+		<action name="gotoUpdatelinkGroup" method="gotoUpdatelinkGroup"
+			class="smsAction">
+			<result name="success">updatelinkGroup.jsp</result>
+		</action>
+		<action name="savelinkGroup" method="savelinkGroup" class="smsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findLinkGroup</param>
+			</result>
+		</action>
+		<action name="updatelinkGroup" method="updatelinkGroup" class="smsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findLinkGroup</param>
+			</result>
+		</action>
+		<action name="deletelinkGroup" method="deletelinkGroup" class="smsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findLinkGroup</param>
+			</result>
+		</action>
+		<action name="gotoSavelinkMan" method="gotoSavelinkMan" class="smsAction">
+			<result name="success">savelinkMan.jsp</result>
+		</action>
+		<action name="gotoUpdatelinkMan" method="gotoUpdatelinkMan"
+			class="smsAction">
+			<result name="success">updatelinkMan.jsp</result>
+		</action>
+		<action name="savelinkMan" method="savelinkMan" class="smsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findLinkMan</param>
+			</result>
+		</action>
+		<action name="updatelinkMan" method="updatelinkMan" class="smsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findLinkMan</param>
+			</result>
+		</action>
+		<action name="deletelinkMan" method="deletelinkMan" class="smsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findLinkMan</param>
+			</result>
+		</action>
+		<action name="gotoSendMessage" method="gotoSendMessage" class="smsAction">
+			<result name="success">sendMessage.jsp</result>
+		</action>
+		<action name="showMessgage" method="showMessgage" class="smsAction">
+			<result name="success">showMessgage.jsp</result>
+		</action>
+		<action name="sendMessage" method="sendMessage" class="smsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">gotoSendMessage</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="smsCard" extends="json-default" namespace="/admin/sms">
+		<action name="findLinkManJsonList" method="findLinkManJsonList"
+			class="smsAction">
+			<result type="json" name="success">
+				<param name="root">
+					linkManJsonList
+				</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="filePage" extends="default" namespace="/admin/filePage">
+		<action name="findFileResourceList" method="pageQuery" class="pageQueryAction">
+			<param name="pageParam[0].entity">FileResource</param>
+			<param name="pageParam[0].entityVo">com.sinotn.examsafety.vo.FileResourceVo</param>
+			<param name="pageParam[0].everyPage">20</param>
+			<param name="pageParam[0].initCondition">
+			frExamArea like '${session.loginSession.areaId}%'
+			</param>
+			<param name="pageParam[0].orderBy">order by frCreateDate desc</param>
+			<param name="queryFilter"></param>
+			<result name="success">
+				fileResourceList.jsp
+			</result>
+		</action>
+		<action name="deleteFile" method="deleteFile" class="fileResourceAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">findFileResourceList</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

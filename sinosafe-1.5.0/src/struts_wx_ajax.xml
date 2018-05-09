@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+     "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+		<package name="wx_ajax" extends="json-default" namespace="/wx">
+			<!-- 通过小程序接口获取用户微信id -->
+			<action name="wxUploadImg" method="wxUploadImg" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 通过小程序接口获取用户微信id -->
+			<action name="getOpenIdByCode" method="getOpenIdByCode" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 登陆 -->
+			<action name="findLinkManByUserPass" method="updateLinkManByUserPass" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 签到 -->
+			<action name="findLinkManLogin" method="updateLinkManLogin" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 签到查询 -->
+			<action name="findLinkManLoginByManId" method="findLinkManLoginByManId" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 根据准考证、身份证、姓名 查询考生信息 -->
+			<action name="findExamineeByInfo" method="findExamineeByInfo" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 获取联系人列表（微信小程序JSON格式） -->
+			<action name="findWxLinkManJsonList" method="findWxLinkManJsonList" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 异常上报 -->
+			<action name="addExamException" method="addExamException" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 异常查询 -->
+			<action name="findExamException" method="findExamExceptionByManId" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 缺考上报 -->
+			<action name="updateExamMiss" method="updateExamMiss" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 缺考查询 -->
+			<action name="findExamMiss" method="findExamMiss" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 20170906 -->
+			<action name="addWxExamException" method="addWxExamException" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 违纪上报 -->
+			<action name="addExamPunishInfo" method="addExamPunishInfo" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 违纪查询 -->
+			<action name="findExamPunishInfo" method="findExamPunishInfo" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 试卷交接信息上传 -->
+			<action name="addPaperMoveInfo" method="addPaperMoveInfo" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 查询试卷交接信息 -->
+			<action name="findPaperMoveInfo" method="findPaperMoveInfo" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 查看考生四个科目的详细信息 -->
+			<action name="findResultExamineeListByAjax" method="findResultExamineeListByAjax" class="resultExamineeAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			
+			<!-- 根据联系人ID获取微信消息列表 -->
+			<action name="findWxSmsInfoByLinkManId" method="findWxSmsInfoByLinkManId" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 更新已读状态和回复消息 -->
+			<action name="updateReadFlagAndReplyMsg" method="updateReadFlagAndReplyMsg" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 修改已读状态和查询详细信息 -->
+			<action name="updateReadFlagAndFindReplyMsg" method="updateReadFlagAndFindReplyMsg" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 微信端新增指令下发 -->
+			<action name="saveWxSmsTask" method="saveWxSmsTask" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+			<!-- 微信端发送消息 -->
+			<action name="sendMessage" method="sendMessage" class="shSmsAction">
+				<result type="json" name="success">
+					<param name="root">
+						ajaxBackData
+					</param>
+				</result>
+			</action>
+		</package>
+</struts>

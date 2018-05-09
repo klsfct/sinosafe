@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+     "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+		<!-- 百度地图根据考点信息查询考点集合 -->
+		<package name="sh_baidu_ajax" extends="json-default" namespace="/baidu">
+			<action name="getExamPlaceByExamArea" method="getExamPlaceByExamArea" class="examPlaceAction">
+				<result type="json" name="success">
+					<param name="root">
+							ajaxBackData
+					</param>
+					<param name="callbackParameter">callback</param>  
+				</result>
+			</action>
+			<!-- 根据登录用户地区ID查询联系人列表 -->
+			<action name="getLinkManByLoginArea" method="getLinkManByLoginArea" class="shLinkManAction">
+				<result type="json" name="success">
+					<param name="root">
+							ajaxBackData
+					</param>
+					<param name="callbackParameter">callback</param>  
+				</result>
+			</action>
+		</package>
+</struts>
