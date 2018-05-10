@@ -90,14 +90,6 @@ public class BaseAction extends ActionSupport {
 	 */
 	private Map<Object, Object> ajaxBackData;
 	/**
-	 * 上传文件
-	 */
-	//private File uploadFile;
-	/**
-	 * 上传文件集合
-	 */
-	//private File [] uploadFiles;
-	/**
 	 * 获得翻页控制对象
 	 */
 	public PageControl getPageControl() {
@@ -246,24 +238,6 @@ public class BaseAction extends ActionSupport {
 		this.pageNum = pageNum;
 	}
 
-	/*public File getUploadFile() {
-		return uploadFile;
-	}
-
-	public void setUploadFile(File uploadFile) {
-		this.uploadFile = uploadFile;
-	}
-
-
-
-	public File[] getUploadFiles() {
-		return uploadFiles;
-	}
-
-	public void setUploadFiles(File[] uploadFiles) {
-		this.uploadFiles = uploadFiles;
-	}*/
-
 	public String getViewCondition() {
 		if (viewCondition == null || viewCondition.equals("")) {
 			viewCondition = "全部";
@@ -365,73 +339,4 @@ public class BaseAction extends ActionSupport {
 		ajaxBackData.put("dataStatus", "1");
 		ajaxBackData.put("dataMain", obj);
 	}
-
-	/*public String uploadFile() {
-		try {
-			if (null != uploadFile) {
-				// 项目服务器路径
-				String projectServerPath = this.getRequest().getScheme()
-						+ "://" + this.getRequest().getServerName() + ":"
-						+ this.getRequest().getServerPort()
-						+ this.getRequest().getContextPath() + "/excelFileUpload/examinee/";
-				// 上传文件绝对路径
-				String path = this.getRequest().getSession()
-						.getServletContext().getRealPath("/excelFileUpload/examinee/");
-				String newFileName ="examineeData_" + System.currentTimeMillis() +".xlsx";
-				File newFile = new File(new File(path),newFileName);
-				if (!newFile.getParentFile().exists()) {
-
-					newFile.getParentFile().mkdirs();
-				}
-
-				// 读取保存在临时目录下的上传文件，写入到新的文件中
-				FileUtils.copyFileToFile(uploadFile, newFile);
-				String serverFilePatn = path + "\\" + newFileName;
-				this.setAjaxBackDataMain(serverFilePatn);
-				
-			} else {
-				this.setAjaxBackDataErrorMsg("文件上传失败！");
-			}
-		} catch (IOException e) {
-			
-			this.setAjaxBackDataErrorMsg(e);
-		}
-
-		return SUCCESS;
-	}
-	
-	public String uploadFileData(){
-		try {
-			if (null != uploadFile) {
-				// 项目服务器路径
-				String projectServerPath = this.getRequest().getScheme()
-						+ "://" + this.getRequest().getServerName() + ":"
-						+ this.getRequest().getServerPort()
-						+ this.getRequest().getContextPath() + "/excelFileUpload/examPlace/";
-				// 上传文件绝对路径
-				String path = this.getRequest().getSession()
-						.getServletContext().getRealPath("/excelFileUpload/examPlace/");
-				String newFileName = DateUtils.getCurFormatDate(DateUtils.C_YYYYMMDDHHMMSS) +".xlsx";
-				File newFile = new File(new File(path),newFileName);
-				if (!newFile.getParentFile().exists()) {
-
-					newFile.getParentFile().mkdirs();
-				}
-
-				// 读取保存在临时目录下的上传文件，写入到新的文件中
-				FileUtils.copyFileToFile(uploadFile, newFile);
-				String serverFilePatn = path + "\\" + newFileName;
-				this.setAjaxBackDataMain(serverFilePatn);
-			} else {
-				this.setAjaxBackDataErrorMsg("文件上传失败！");
-			}
-		} catch (IOException e) {
-			
-			this.setAjaxBackDataErrorMsg(e);
-		}
-
-		return SUCCESS;
-		
-	}*/
-	
 }
